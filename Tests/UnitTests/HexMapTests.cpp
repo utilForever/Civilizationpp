@@ -12,9 +12,36 @@ TEST(HexMapTest, HexMapShouldAlwaysHaveOrigin)
 TEST(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
 {
     HexMap hexMap{};
-    // There are assumptions that the default generator
-    // will be at least smaller that the 200x200, which
-    // must be clarified by other test.
     Hex* invalid = hexMap.get(-100, -100);
     ASSERT_EQ(invalid, nullptr);
+}
+
+TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
+{
+    HexMap hexMap{};
+    // Basic maps are in shape of parrallelogram of 9 tiles
+    // Also, tiles are indexed using axial coordinates, where
+    // center tile, i.e. (3, 3) tile in offset coordinates, is
+    // origin (0, 0). Generating mechanism should be seperated
+    // into seperate class.
+    
+    // Also, there is assumption that all tile is connected 
+    // through some path, i.e., there are no "gaps", "empty
+    // spaces", or "jump" between any two tile.
+
+    for (int row = -2; row <= 2; ++row)
+    {
+        for (int col = -2; col <= 2; ++col)
+        {
+            if ((row == -2 || row == 2) ||
+                (col == -2 || col == 2))
+            {
+                ASSERT_EQ(hexMap.get(row, col), nullptr);
+            }
+            else
+            {
+                ASSERT_NE(hexMap.get(row, col), nullptr);    
+            }
+        }
+    }
 }
