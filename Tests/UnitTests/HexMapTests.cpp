@@ -35,3 +35,21 @@ TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
         }
     }
 }
+
+TEST(HexMapTest, HexMapShouldReturnVectorOfAdjacentTilesOnRequest)
+{
+    HexMap hexMap{};
+    std::vector<Hex*> adjacenciesToOrigin = hexMap.getAdjacencies(0, 0);
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get(-1,  0)) != adjacenciesToOrigin.end());
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get(-1,  1)) != adjacenciesToOrigin.end());
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get( 0,  1)) != adjacenciesToOrigin.end());
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get( 1,  0)) != adjacenciesToOrigin.end());
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get( 1, -1)) != adjacenciesToOrigin.end());
+    ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
+        adjacenciesToOrigin.end(), hexMap.get( 0, -1)) != adjacenciesToOrigin.end());
+}

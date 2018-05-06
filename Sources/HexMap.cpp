@@ -1,6 +1,7 @@
 #include "HexMap.h"
 #include "HexTile.h"
 #include <utility>
+#include <vector>
 
 HexMap::HexMap()
 {
@@ -73,4 +74,16 @@ Hex* HexMap::get(int r, int q) const
     }
 
     return &(mMap[originRow + r][originRow + q]);
+}
+
+std::vector<Hex*> HexMap::getAdjacencies(int r, int q) const
+{
+    std::vector<Hex*> ret{};
+    ret.push_back(get(r - 1, q));
+    ret.push_back(get(r - 1, q + 1));
+    ret.push_back(get(r, q + 1));
+    ret.push_back(get(r + 1, q));
+    ret.push_back(get(r + 1, q - 1));
+    ret.push_back(get(r, q - 1));
+    return ret;
 }

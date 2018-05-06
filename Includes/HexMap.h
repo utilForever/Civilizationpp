@@ -2,6 +2,7 @@
 #define HEX_MAP_H
 
 #include "HexTile.h"
+#include <vector>
 
 class HexMap
 {
@@ -15,6 +16,8 @@ public:
     HexMap& operator= (HexMap&& other) noexcept;
 
     Hex* get(int r, int q) const;
+
+    std::vector<Hex*> getAdjacencies(int r, int q) const;
 
 private:
     // Since map won't be changed after its creation (individual
