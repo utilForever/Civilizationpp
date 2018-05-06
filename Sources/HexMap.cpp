@@ -4,18 +4,18 @@
 
 HexMap::HexMap()
 {
-    mMap = new Hex*[3];
-    for (int row = 0; row < 3; ++row)
+    mMap = new Hex*[mNumOfRows];
+    for (int row = 0; row < mNumOfColumns; ++row)
     {
-        mMap[row] = new Hex[3]{};
+        mMap[row] = new Hex[mNumOfRows]{};
     }
 }
 
 HexMap::HexMap(const HexMap& other) : HexMap()
 {
-    for (int row = 0; row < 3; ++row)
+    for (int row = 0; row < mNumOfRows; ++row)
     {
-        for (int col = 0; col < 3; ++col)
+        for (int col = 0; col < mNumOfColumns; ++col)
         {
            mMap[row][col] = other.mMap[row][col];
         }
@@ -29,7 +29,7 @@ HexMap::HexMap(HexMap&& other) noexcept : mMap(other.mMap)
 
 HexMap::~HexMap()
 {
-    for (int row = 0; row < 3; ++row)
+    for (int row = 0; row < mNumOfRows; ++row)
     {
         delete[] mMap[row];
     }
@@ -50,7 +50,7 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
         return *this;
     }
 
-    for (int row = 0; row < 3; ++row)
+    for (int row = 0; row < mNumOfRows; ++row)
     {
         delete[] mMap[row];
     }
@@ -64,12 +64,14 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
 
 Hex* HexMap::get(int row, int column) const
 {
-    if ((row < -1 || row > 1) ||
-        (column < -1 || column > 1))
+    int originRow = (mNumOfRows - 1) / 2;
+    int originCol = (mNumOfColumns - 1) / 2;
+
+    if ((originRow + row < 0 || originRow + row >= mNumOfRows) ||
+        (originCol + column < 0 || originCol + column >= mNumOfRows))
     {
         return nullptr;
     }
 
-    //(0,0) corresponds to the center of the 2-d array.
-    return &(mMap[row + 1][column + 1]);
+    return &(mMap[originRow + row][originRow + column]);
 }
