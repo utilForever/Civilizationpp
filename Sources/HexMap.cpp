@@ -61,7 +61,6 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
     return *this;
 }
 
-
 Hex* HexMap::get(int row, int column) const
 {
     int originRow = (mNumOfRows - 1) / 2;
