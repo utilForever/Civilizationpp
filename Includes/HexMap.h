@@ -2,7 +2,6 @@
 #define HEX_MAP_H
 
 #include "HexTile.h"
-#include "ParallelogramGenerator.h"
 
 class HexMap
 {
