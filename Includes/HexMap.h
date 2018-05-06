@@ -2,12 +2,18 @@
 #define HEX_MAP_H
 
 #include "HexTile.h"
+#include "ParallelogramGenerator.h"
 
 class HexMap
 {
 public:
     HexMap();
-    ~HexMap();
+    HexMap(const HexMap& other);
+    HexMap(HexMap&& other) noexcept;
+    ~HexMap() noexcept;
+
+    HexMap& operator= (const HexMap& other);
+    HexMap& operator= (HexMap&& other) noexcept;
 
     Hex* get(int row, int column) const;
 

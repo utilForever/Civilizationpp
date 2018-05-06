@@ -29,6 +29,8 @@ TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
     // through some path, i.e., there are no "gaps", "empty
     // spaces", or "jump" between any two tile.
 
+    // This test may should be removed.
+
     for (int row = -2; row <= 2; ++row)
     {
         for (int col = -2; col <= 2; ++col)
