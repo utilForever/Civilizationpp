@@ -61,16 +61,16 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
     return *this;
 }
 
-Hex* HexMap::get(int row, int column) const
+Hex* HexMap::get(int r, int q) const
 {
     int originRow = (mNumOfRows - 1) / 2;
     int originCol = (mNumOfColumns - 1) / 2;
 
-    if ((originRow + row < 0 || originRow + row >= mNumOfRows) ||
-        (originCol + column < 0 || originCol + column >= mNumOfRows))
+    if ((originRow + r < 0 || originRow + r >= mNumOfRows) ||
+        (originCol + q < 0 || originCol + q >= mNumOfRows))
     {
         return nullptr;
     }
 
-    return &(mMap[originRow + row][originRow + column]);
+    return &(mMap[originRow + r][originRow + q]);
 }

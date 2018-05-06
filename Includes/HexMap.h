@@ -14,7 +14,7 @@ public:
     HexMap& operator= (const HexMap& other);
     HexMap& operator= (HexMap&& other) noexcept;
 
-    Hex* get(int row, int column) const;
+    Hex* get(int r, int q) const;
 
 private:
     // Since map won't be changed after its creation (individual

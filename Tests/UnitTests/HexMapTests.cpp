@@ -19,18 +19,18 @@ TEST(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
 TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
 {
     HexMap hexMap{};
-    for (int row = -2; row <= 2; ++row)
+    for (int r = -2; r <= 2; ++r)
     {
-        for (int col = -2; col <= 2; ++col)
+        for (int q = -2; q <= 2; ++q)
         {
-            if ((row == -2 || row == 2) ||
-                (col == -2 || col == 2))
+            if ((r == -2 || r == 2) ||
+                (q == -2 || q == 2))
             {
-                ASSERT_EQ(hexMap.get(row, col), nullptr);
+                ASSERT_EQ(hexMap.get(r, q), nullptr);
             }
             else
             {
-                ASSERT_NE(hexMap.get(row, col), nullptr);    
+                ASSERT_NE(hexMap.get(r, q), nullptr);    
             }
         }
     }
