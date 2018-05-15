@@ -4,23 +4,26 @@
 
 using namespace Civilizationpp;
 
-TEST(HexMapTest, HexMapShouldAlwaysHaveOrigin) 
+class HexMapTest : public ::testing::Test
 {
+protected:
     HexMap hexMap{GameSettings{3, 3}};
+};
+
+TEST_F(HexMapTest, HexMapShouldAlwaysHaveOrigin) 
+{
     Hex* origin = hexMap.GetTile(0, 0);
     ASSERT_NE(origin, nullptr);
 }
 
-TEST(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
+TEST_F(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
 {
-    HexMap hexMap{GameSettings{3, 3}};
     Hex* invalid = hexMap.GetTile(-100, -100);
     ASSERT_EQ(invalid, nullptr);
 }
 
-TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
+TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
 {
-    HexMap hexMap{GameSettings{3, 3}};
     for (int r = -2; r <= 2; ++r)
     {
         for (int q = -2; q <= 2; ++q)
@@ -38,9 +41,8 @@ TEST(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
     }
 }
 
-TEST(HexMapTest, HexMapShouldReturnVectorOfAdjacentTilesOnRequest)
+TEST_F(HexMapTest, HexMapShouldReturnVectorOfAdjacentTilesOnRequest)
 {
-    HexMap hexMap{GameSettings{3, 3}};
     std::vector<Hex*> adjacenciesToOrigin = hexMap.GetAdjacencies(0, 0);
     ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
         adjacenciesToOrigin.end(), hexMap.GetTile(-1,  0)) != adjacenciesToOrigin.end());
