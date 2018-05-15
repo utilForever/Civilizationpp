@@ -40,6 +40,27 @@ TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
     }
 }
 
+TEST_F(HexMapTest, HexMapShouldSupportColumnWiseWraparound)
+{
+    ASSERT_NE(hexMap.GetTile(-1, -2), nullptr);
+    ASSERT_NE(hexMap.GetTile( 0, -2), nullptr);
+    ASSERT_NE(hexMap.GetTile(+1, -2), nullptr);
+    ASSERT_NE(hexMap.GetTile(-1, +2), nullptr);
+    ASSERT_NE(hexMap.GetTile( 0, +2), nullptr);
+    ASSERT_NE(hexMap.GetTile( 1, +2), nullptr);
+}
+
+TEST_F(HexMapTest, HexMapShouldNotSupportRowWiseWraparound)
+{
+    ASSERT_EQ(hexMap.GetTile(-2, -1), nullptr);
+    ASSERT_EQ(hexMap.GetTile(-2,  0), nullptr);
+    ASSERT_EQ(hexMap.GetTile(-2, +1), nullptr);
+    ASSERT_EQ(hexMap.GetTile(+2, -2), nullptr);
+    ASSERT_EQ(hexMap.GetTile(+2, -1), nullptr);
+    ASSERT_EQ(hexMap.GetTile(+2,  0), nullptr);
+    ASSERT_EQ(hexMap.GetTile(+2, +1), nullptr);
+}
+
 TEST_F(HexMapTest, HexMapShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
 {
     std::vector<Hex*> adjacenciesToOrigin = hexMap.GetAdjacencies(0, 0);
