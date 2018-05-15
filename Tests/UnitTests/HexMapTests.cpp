@@ -40,7 +40,7 @@ TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
     }
 }
 
-TEST_F(HexMapTest, HexMapShouldReturnVectorOfAdjacentTilesOnRequest)
+TEST_F(HexMapTest, HexMapShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
 {
     std::vector<Hex*> adjacenciesToOrigin = hexMap.GetAdjacencies(0, 0);
     ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
@@ -55,4 +55,16 @@ TEST_F(HexMapTest, HexMapShouldReturnVectorOfAdjacentTilesOnRequest)
         adjacenciesToOrigin.end(), hexMap.GetTile( 1, -1)) != adjacenciesToOrigin.end());
     ASSERT_TRUE(std::find(adjacenciesToOrigin.begin(),
         adjacenciesToOrigin.end(), hexMap.GetTile( 0, -1)) != adjacenciesToOrigin.end());
+    ASSERT_EQ(adjacenciesToOrigin.size(), (size_t)6);
+
+    std::vector<Hex*> adjacenciesToEdge = hexMap.GetAdjacencies(-1, -1);
+    ASSERT_TRUE(std::find(adjacenciesToEdge.begin(),
+		adjacenciesToEdge.end(), hexMap.GetTile(-1, -2)) != adjacenciesToEdge.end());
+    ASSERT_TRUE(std::find(adjacenciesToEdge.begin(),
+		adjacenciesToEdge.end(), hexMap.GetTile( 0, -2)) != adjacenciesToEdge.end());
+    ASSERT_TRUE(std::find(adjacenciesToEdge.begin(),
+		adjacenciesToEdge.end(), hexMap.GetTile( 0, -1)) != adjacenciesToEdge.end());
+    ASSERT_TRUE(std::find(adjacenciesToEdge.begin(),
+		adjacenciesToEdge.end(), hexMap.GetTile(-1,  0)) != adjacenciesToEdge.end());
+    ASSERT_EQ(adjacenciesToEdge.size(), (size_t)4);
 }

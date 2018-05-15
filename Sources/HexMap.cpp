@@ -1,5 +1,6 @@
 #include "HexMap.h"
 #include "HexTile.h"
+#include <algorithm>
 #include <utility>
 #include <vector>
 
@@ -103,5 +104,6 @@ std::vector<Hex*> HexMap::GetAdjacencies(int r, int q) const
     ret.push_back(GetTile(r + 1, q));
     ret.push_back(GetTile(r + 1, q - 1));
     ret.push_back(GetTile(r, q - 1));
+    ret.erase(std::remove(ret.begin(), ret.end(), nullptr), ret.end());
     return ret;
 }
