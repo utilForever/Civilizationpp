@@ -41,6 +41,11 @@ HexMap::~HexMap()
 
 HexMap& HexMap::operator=(const HexMap& other)
 {
+    if (this == &other)
+    {
+        return *this;
+    }
+
     HexMap temp{other};
     *this = std::move(temp);
     return *this;
