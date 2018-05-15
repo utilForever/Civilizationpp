@@ -2,6 +2,7 @@
 #define HEX_MAP_H
 
 #include "HexTile.h"
+#include "GameSettings.h"
 #include <vector>
 
 namespace Civilizationpp
@@ -9,7 +10,7 @@ namespace Civilizationpp
     class HexMap
     {
     public:
-        HexMap();
+        HexMap(GameSettings settings);
         HexMap(const HexMap& other);
         HexMap(HexMap&& other) noexcept;
         ~HexMap() noexcept;
@@ -32,8 +33,7 @@ namespace Civilizationpp
         // or that of columns is even, (0, 0) is located at lefter
         // position.
         Hex** m_map;
-        const int m_rowCount = 3;
-        const int m_colCount = 3;
+        GameSettings m_settings;
     };
 }
 

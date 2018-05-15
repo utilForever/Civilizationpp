@@ -5,34 +5,36 @@
 
 using namespace Civilizationpp;
 
-HexMap::HexMap()
+HexMap::HexMap(GameSettings settings) : m_settings(settings)
 {
-    m_map = new Hex*[m_rowCount];
-    for (int row = 0; row < m_colCount; ++row)
+    m_map = new Hex*[settings.rowCount];
+    for (int row = 0; row < settings.rowCount; ++row)
     {
-        m_map[row] = new Hex[m_rowCount]{};
+        m_map[row] = new Hex[settings.rowCount]{};
     }
 }
 
-HexMap::HexMap(const HexMap& other) : HexMap()
+HexMap::HexMap(const HexMap& other) : m_settings(other.m_settings)
 {
-    for (int row = 0; row < m_rowCount; ++row)
+    for (int row = 0; row < m_settings.rowCount; ++row)
     {
-        for (int col = 0; col < m_colCount; ++col)
+        for (int col = 0; col < m_settings.colCount; ++col)
         {
            m_map[row][col] = other.m_map[row][col];
         }
     }
 }
 
-HexMap::HexMap(HexMap&& other) noexcept : m_map(other.m_map)
+HexMap::HexMap(HexMap&& other) noexcept :
+    m_settings(other.m_settings),
+    m_map(other.m_map)
 {
     other.m_map = nullptr;
 }
 
 HexMap::~HexMap()
 {
-    for (int row = 0; row < m_rowCount; ++row)
+    for (int row = 0; row < m_settings.rowCount; ++row)
     {
         delete[] m_map[row];
     }
@@ -58,7 +60,7 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
         return *this;
     }
 
-    for (int row = 0; row < m_rowCount; ++row)
+    for (int row = 0; row < m_settings.rowCount; ++row)
     {
         delete[] m_map[row];
     }
@@ -66,16 +68,19 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
 
     m_map = other.m_map;
     other.m_map = nullptr;
+
+    m_settings = other.m_settings;
+
     return *this;
 }
 
 Hex* HexMap::GetTile(int r, int q) const
 {
-    int originRow = (m_rowCount - 1) / 2;
-    int originCol = (m_colCount - 1) / 2;
+    int originRow = (m_settings.rowCount - 1) / 2;
+    int originCol = (m_settings.colCount - 1) / 2;
 
-    if ((originRow + r < 0 || originRow + r >= m_rowCount) ||
-        (originCol + q < 0 || originCol + q >= m_rowCount))
+    if ((originRow + r < 0 || originRow + r >= m_settings.rowCount) ||
+        (originCol + q < 0 || originCol + q >= m_settings.colCount))
     {
         return nullptr;
     }
