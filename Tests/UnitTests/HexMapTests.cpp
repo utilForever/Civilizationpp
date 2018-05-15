@@ -28,8 +28,7 @@ TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
     {
         for (int q = -2; q <= 2; ++q)
         {
-            if ((r == -2 || r == 2) ||
-                (q == -2 || q == 2))
+            if (r == -2 || r == 2)
             {
                 ASSERT_EQ(hexMap.GetTile(r, q), nullptr);
             }

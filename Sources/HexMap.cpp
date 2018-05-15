@@ -79,13 +79,19 @@ Hex* HexMap::GetTile(int r, int q) const
     int originRow = (m_settings.rowCount - 1) / 2;
     int originCol = (m_settings.colCount - 1) / 2;
 
-    if ((originRow + r < 0 || originRow + r >= m_settings.rowCount) ||
-        (originCol + q < 0 || originCol + q >= m_settings.colCount))
+    int tileRow = originRow + r;
+    if (originRow + r < 0 || originRow + r >= m_settings.rowCount)
     {
         return nullptr;
     }
 
-    return &(m_map[originRow + r][originRow + q]);
+    int tileCol = (originCol + q) % m_settings.colCount;
+    if (tileCol < 0)
+    {
+        tileCol += m_settings.colCount;
+    }
+
+    return &(m_map[tileRow][tileCol]);
 }
 
 std::vector<Hex*> HexMap::GetAdjacencies(int r, int q) const
