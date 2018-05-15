@@ -6,40 +6,26 @@
 
 using namespace Civilizationpp;
 
-HexMap::HexMap(GameSettings settings) : m_settings(settings)
+HexMap::HexMap(GameSettings settings) :
+    m_settings(settings),
+    m_map(settings.rowCount * settings.colCount)
 {
-    m_map = new Hex*[settings.rowCount];
-    for (int row = 0; row < settings.rowCount; ++row)
-    {
-        m_map[row] = new Hex[settings.rowCount]{};
-    }
 }
 
-HexMap::HexMap(const HexMap& other) : m_settings(other.m_settings)
+HexMap::HexMap(const HexMap& other) :
+    m_settings(other.m_settings),
+    m_map(other.m_map)
 {
-    for (int row = 0; row < m_settings.rowCount; ++row)
-    {
-        for (int col = 0; col < m_settings.colCount; ++col)
-        {
-           m_map[row][col] = other.m_map[row][col];
-        }
-    }
 }
 
 HexMap::HexMap(HexMap&& other) noexcept :
     m_settings(other.m_settings),
-    m_map(other.m_map)
+    m_map(std::move(other.m_map))
 {
-    other.m_map = nullptr;
 }
 
 HexMap::~HexMap()
 {
-    for (int row = 0; row < m_settings.rowCount; ++row)
-    {
-        delete[] m_map[row];
-    }
-    delete[] m_map;
 }
 
 HexMap& HexMap::operator=(const HexMap& other)
@@ -61,15 +47,7 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
         return *this;
     }
 
-    for (int row = 0; row < m_settings.rowCount; ++row)
-    {
-        delete[] m_map[row];
-    }
-    delete[] m_map;
-
-    m_map = other.m_map;
-    other.m_map = nullptr;
-
+    m_map = std::move(other.m_map);
     m_settings = other.m_settings;
 
     return *this;
@@ -77,6 +55,7 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
 
 Hex* HexMap::GetTile(int r, int q) const
 {
+    // Convert axial coordinates into 2d array index
     int originRow = (m_settings.rowCount - 1) / 2;
     int originCol = (m_settings.colCount - 1) / 2;
 
@@ -92,7 +71,9 @@ Hex* HexMap::GetTile(int r, int q) const
         tileCol += m_settings.colCount;
     }
 
-    return &(m_map[tileRow][tileCol]);
+    // Convert 2d array index into 1d array index
+    int index = tileCol + tileRow * m_settings.colCount;
+    return const_cast<Hex *>(&(m_map[index]));
 }
 
 std::vector<Hex*> HexMap::GetAdjacencies(int r, int q) const

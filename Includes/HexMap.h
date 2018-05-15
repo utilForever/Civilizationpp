@@ -32,7 +32,7 @@ namespace Civilizationpp
         // (0,0) is at the center of 2-d array. If the number of rows
         // or that of columns is even, (0, 0) is located at lefter
         // position.
-        Hex** m_map;
+        std::vector<Hex> m_map;
         GameSettings m_settings;
     };
 }
