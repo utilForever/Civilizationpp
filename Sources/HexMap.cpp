@@ -3,38 +3,40 @@
 #include <utility>
 #include <vector>
 
+using namespace Civilizationpp;
+
 HexMap::HexMap()
 {
-    mMap = new Hex*[mNumOfRows];
-    for (int row = 0; row < mNumOfColumns; ++row)
+    m_map = new Hex*[m_rowCount];
+    for (int row = 0; row < m_colCount; ++row)
     {
-        mMap[row] = new Hex[mNumOfRows]{};
+        m_map[row] = new Hex[m_rowCount]{};
     }
 }
 
 HexMap::HexMap(const HexMap& other) : HexMap()
 {
-    for (int row = 0; row < mNumOfRows; ++row)
+    for (int row = 0; row < m_rowCount; ++row)
     {
-        for (int col = 0; col < mNumOfColumns; ++col)
+        for (int col = 0; col < m_colCount; ++col)
         {
-           mMap[row][col] = other.mMap[row][col];
+           m_map[row][col] = other.m_map[row][col];
         }
     }
 }
 
-HexMap::HexMap(HexMap&& other) noexcept : mMap(other.mMap)
+HexMap::HexMap(HexMap&& other) noexcept : m_map(other.m_map)
 {
-    other.mMap = nullptr;
+    other.m_map = nullptr;
 }
 
 HexMap::~HexMap()
 {
-    for (int row = 0; row < mNumOfRows; ++row)
+    for (int row = 0; row < m_rowCount; ++row)
     {
-        delete[] mMap[row];
+        delete[] m_map[row];
     }
-    delete[] mMap;
+    delete[] m_map;
 }
 
 HexMap& HexMap::operator=(const HexMap& other)
@@ -51,39 +53,39 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
         return *this;
     }
 
-    for (int row = 0; row < mNumOfRows; ++row)
+    for (int row = 0; row < m_rowCount; ++row)
     {
-        delete[] mMap[row];
+        delete[] m_map[row];
     }
-    delete[] mMap;
+    delete[] m_map;
 
-    mMap = other.mMap;
-    other.mMap = nullptr;
+    m_map = other.m_map;
+    other.m_map = nullptr;
     return *this;
 }
 
-Hex* HexMap::get(int r, int q) const
+Hex* HexMap::GetTile(int r, int q) const
 {
-    int originRow = (mNumOfRows - 1) / 2;
-    int originCol = (mNumOfColumns - 1) / 2;
+    int originRow = (m_rowCount - 1) / 2;
+    int originCol = (m_colCount - 1) / 2;
 
-    if ((originRow + r < 0 || originRow + r >= mNumOfRows) ||
-        (originCol + q < 0 || originCol + q >= mNumOfRows))
+    if ((originRow + r < 0 || originRow + r >= m_rowCount) ||
+        (originCol + q < 0 || originCol + q >= m_rowCount))
     {
         return nullptr;
     }
 
-    return &(mMap[originRow + r][originRow + q]);
+    return &(m_map[originRow + r][originRow + q]);
 }
 
-std::vector<Hex*> HexMap::getAdjacencies(int r, int q) const
+std::vector<Hex*> HexMap::GetAdjacencies(int r, int q) const
 {
     std::vector<Hex*> ret{};
-    ret.push_back(get(r - 1, q));
-    ret.push_back(get(r - 1, q + 1));
-    ret.push_back(get(r, q + 1));
-    ret.push_back(get(r + 1, q));
-    ret.push_back(get(r + 1, q - 1));
-    ret.push_back(get(r, q - 1));
+    ret.push_back(GetTile(r - 1, q));
+    ret.push_back(GetTile(r - 1, q + 1));
+    ret.push_back(GetTile(r, q + 1));
+    ret.push_back(GetTile(r + 1, q));
+    ret.push_back(GetTile(r + 1, q - 1));
+    ret.push_back(GetTile(r, q - 1));
     return ret;
 }
