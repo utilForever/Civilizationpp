@@ -1,5 +1,5 @@
-#ifndef HEX_MAP_H
-#define HEX_MAP_H
+#ifndef CIVILIZATIONPP_HEX_MAP_H
+#define CIVILIZATIONPP_HEX_MAP_H
 
 #include "HexTile.h"
 #include "GameSettings.h"
@@ -37,4 +37,4 @@ namespace Civilizationpp
     };
 }
 
-#endif //HEX_MAP_H
+#endif //CIVILIZATIONPP_HEX_MAP_H

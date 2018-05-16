@@ -1,6 +1,6 @@
-#ifndef HEX_TILE_H
-#define HEX_TILE_H
+#ifndef CIVILIZATIONPP_HEX_TILE_H
+#define CIVILIZATIONPP_HEX_TILE_H
 
 class Hex {};
 
-#endif  // HEX_TILE_H
+#endif  // CIVILIZATIONPP_HEX_TILE_H

@@ -1,5 +1,5 @@
-#ifndef GAME_SETTINGS_H
-#define GAME_SETTINGS_H
+#ifndef CIVILIZATIONPP_GAME_SETTINGS_H
+#define CIVILIZATIONPP_GAME_SETTINGS_H
 
 struct GameSettings
 {
@@ -9,4 +9,4 @@ struct GameSettings
     int colCount;
 };
 
-#endif //GAME_SETTINGS_H
+#endif //CIVILIZATIONPP_GAME_SETTINGS_H
