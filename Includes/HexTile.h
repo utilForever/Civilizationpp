@@ -3,7 +3,7 @@
 
 namespace Civilizationpp
 {
-    class Hex {};
+    class HexTile {};
 }
 
 #endif  // CIVILIZATIONPP_HEX_TILE_H

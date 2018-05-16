@@ -18,9 +18,9 @@ namespace Civilizationpp
         HexMap& operator= (const HexMap& other);
         HexMap& operator= (HexMap&& other) noexcept;
 
-        Hex* GetTile(int r, int q) const;
+        HexTile* GetTile(int r, int q) const;
 
-        std::vector<Hex*> GetAdjacencies(int r, int q) const;
+        std::vector<HexTile*> GetAdjacencies(int r, int q) const;
 
     private:
         // Since map won't be changed after its creation (individual
@@ -32,7 +32,7 @@ namespace Civilizationpp
         // (0,0) is at the center of 2-d array. If the number of rows
         // or that of columns is even, (0, 0) is located at lefter
         // position.
-        std::vector<Hex> m_map;
+        std::vector<HexTile> m_map;
         GameSettings m_settings;
     };
 }

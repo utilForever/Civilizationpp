@@ -12,13 +12,13 @@ protected:
 
 TEST_F(HexMapTest, HexMapShouldAlwaysHaveOrigin) 
 {
-    Hex* origin = hexMap.GetTile(0, 0);
+    HexTile* origin = hexMap.GetTile(0, 0);
     ASSERT_NE(origin, nullptr);
 }
 
 TEST_F(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
 {
-    Hex* invalid = hexMap.GetTile(-100, -100);
+    HexTile* invalid = hexMap.GetTile(-100, -100);
     ASSERT_EQ(invalid, nullptr);
 }
 
@@ -63,7 +63,7 @@ TEST_F(HexMapTest, HexMapShouldNotSupportRowWiseWraparound)
 
 TEST_F(HexMapTest, HexMapShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
 {
-    std::vector<Hex*> adjacenciesToOrigin = hexMap.GetAdjacencies(0, 0);
+    std::vector<HexTile*> adjacenciesToOrigin = hexMap.GetAdjacencies(0, 0);
     ASSERT_NE(std::find(adjacenciesToOrigin.begin(),
         adjacenciesToOrigin.end(), hexMap.GetTile(-1,  0)), adjacenciesToOrigin.end());
     ASSERT_NE(std::find(adjacenciesToOrigin.begin(),
@@ -78,7 +78,7 @@ TEST_F(HexMapTest, HexMapShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
         adjacenciesToOrigin.end(), hexMap.GetTile( 0, -1)), adjacenciesToOrigin.end());
     ASSERT_EQ(adjacenciesToOrigin.size(), (size_t)6);
 
-    std::vector<Hex*> adjacenciesToEdge = hexMap.GetAdjacencies(-1, -1);
+    std::vector<HexTile*> adjacenciesToEdge = hexMap.GetAdjacencies(-1, -1);
     ASSERT_NE(std::find(adjacenciesToEdge.begin(),
 		adjacenciesToEdge.end(), hexMap.GetTile(-1, -2)), adjacenciesToEdge.end());
     ASSERT_NE(std::find(adjacenciesToEdge.begin(),

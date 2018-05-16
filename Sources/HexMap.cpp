@@ -53,7 +53,7 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
     return *this;
 }
 
-Hex* HexMap::GetTile(int r, int q) const
+HexTile* HexMap::GetTile(int r, int q) const
 {
     // Convert axial coordinates into 2d array index
     int originRow = (m_settings.rowCount - 1) / 2;
@@ -73,12 +73,12 @@ Hex* HexMap::GetTile(int r, int q) const
 
     // Convert 2d array index into 1d array index
     int index = tileCol + tileRow * m_settings.colCount;
-    return const_cast<Hex *>(&(m_map[index]));
+    return const_cast<HexTile *>(&(m_map[index]));
 }
 
-std::vector<Hex*> HexMap::GetAdjacencies(int r, int q) const
+std::vector<HexTile*> HexMap::GetAdjacencies(int r, int q) const
 {
-    std::vector<Hex*> ret{};
+    std::vector<HexTile*> ret{};
     ret.push_back(GetTile(r - 1, q));
     ret.push_back(GetTile(r - 1, q + 1));
     ret.push_back(GetTile(r, q + 1));
