@@ -5,10 +5,10 @@ namespace Civilizationpp
 {
     struct GameSettings
     {
-        GameSettings(int rowCount, int colCount);
+        GameSettings(size_t rowCount, size_t colCount);
 
-        int rowCount;
-        int colCount;
+        size_t rowCount;
+        size_t colCount;
     };
 }
 

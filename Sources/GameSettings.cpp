@@ -2,6 +2,6 @@
 
 using namespace Civilizationpp;
 
-GameSettings::GameSettings(int rowCount, int colCount) : rowCount(rowCount), colCount(colCount)
+GameSettings::GameSettings(size_t rowCount, size_t colCount) : rowCount(rowCount), colCount(colCount)
 {
 }

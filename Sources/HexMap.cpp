@@ -56,24 +56,27 @@ HexMap& HexMap::operator=(HexMap&& other) noexcept
 
 HexTile* HexMap::GetTile(int r, int q) const
 {
+    const int rowCount = static_cast<int>(m_settings.rowCount);
+    const int colCount = static_cast<int>(m_settings.colCount);
+
     // Convert axial coordinates into 2d array index
-    int originRow = (m_settings.rowCount - 1) / 2;
-    int originCol = (m_settings.colCount - 1) / 2;
+    int originRow = (rowCount - 1) / 2;
+    int originCol = (colCount - 1) / 2;
 
     int tileRow = originRow + r;
-    if (originRow + r < 0 || originRow + r >= m_settings.rowCount)
+    if (originRow + r < 0 || originRow + r >= rowCount)
     {
         return nullptr;
     }
 
-    int tileCol = (originCol + q) % m_settings.colCount;
+    int tileCol = (originCol + q) % colCount;
     if (tileCol < 0)
     {
-        tileCol += m_settings.colCount;
+        tileCol += colCount;
     }
 
     // Convert 2d array index into 1d array index
-    int index = tileCol + tileRow * m_settings.colCount;
+    int index = tileCol + tileRow * colCount;
     return const_cast<HexTile *>(&(m_map[index]));
 }
 
