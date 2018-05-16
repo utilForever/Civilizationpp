@@ -1,4 +1,4 @@
-#include "GameSettings.h"
+#include <GameSettings.h>
 
 using namespace Civilizationpp;
 

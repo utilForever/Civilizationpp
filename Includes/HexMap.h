@@ -1,8 +1,9 @@
 #ifndef CIVILIZATIONPP_HEX_MAP_H
 #define CIVILIZATIONPP_HEX_MAP_H
 
-#include "HexTile.h"
-#include "GameSettings.h"
+#include <HexTile.h>
+#include <GameSettings.h>
+
 #include <vector>
 
 namespace Civilizationpp
@@ -15,8 +16,8 @@ namespace Civilizationpp
         HexMap(HexMap&& other) noexcept;
         ~HexMap() noexcept;
 
-        HexMap& operator= (const HexMap& other);
-        HexMap& operator= (HexMap&& other) noexcept;
+        HexMap& operator=(const HexMap& other);
+        HexMap& operator=(HexMap&& other) noexcept;
 
         HexTile* GetTile(int r, int q) const;
 

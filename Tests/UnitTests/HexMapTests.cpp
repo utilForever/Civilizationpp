@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
 #include <HexMap.h>
 #include <HexTile.h>
+
+#include <gtest/gtest.h>
 
 using namespace Civilizationpp;
 
