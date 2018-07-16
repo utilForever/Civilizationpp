@@ -7,7 +7,6 @@ class BaseUnitTest : public ::testing::Test {
     BaseUnit baseunit{};
 };
 TEST_F(BaseUnitTest, BaseUnitShuldCanMove) {
-    auto[x, y] = baseunit.Move(+1, +3);
-    ASSERT_DOUBLE_EQ(x == +1, y == +3);
-
+    auto position = baseunit.Move(+1, -3);
+    ASSERT_DOUBLE_EQ(position.first == +1, position.second == -3);
 }
