@@ -1,7 +1,7 @@
 #include <BaseUnit.h>
 namespace Civilizationpp {
-BaseUnit::BaseUnit(){}
-BaseUnit::BaseUnit(int x, int y){ 
+BaseUnit::BaseUnit(int x, int y, HexMap map) { 
+	m_world = map;
 	m_positionX = x;
     m_positionY = y;
 } 
