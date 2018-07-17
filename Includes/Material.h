@@ -1,9 +1,20 @@
+#pragma once
 #include <HexTile.h>
+#include <functional>
 namespace Civilizationpp {
+using eventFunction = std::function<int(HexTile)>;
 	class Obtainable {
-	public:
-        virtual int GetFood(HexTile tile) = 0;
-        virtual int GetProduction(HexTile tile) = 0;
-        virtual int GetGold(HexTile tile) = 0;
+	 protected:
+            eventFunction Food;
+            eventFunction Production;
+            eventFunction Gold;
+	 public:
+            Obtainable();
+			virtual int GetFood() = 0;
+			virtual int GetProduction() = 0;
+			virtual int GetGold() = 0;
+			void ChangeFood(eventFunction f);
+			void ChangeProduction(eventFunction f);
+			void ChangeGold(eventFunction f);
     };
 }
