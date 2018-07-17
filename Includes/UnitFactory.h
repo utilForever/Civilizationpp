@@ -13,14 +13,16 @@ class UnitFactory {
 
  public:
     UnitFactory(int x, int y);
-    template <typename T>
-    auto CreatUnit(Unit::Codes unitCode) -> T& {
+    auto CreatUnit(Unit::Codes unitCode) -> BaseUnit* {
+        BaseUnit* unit;
         if (unitCode == Unit::Setter) {
-            return Setter(m_x, m_y);
+            unit = new Setter(m_x, m_y);
+            return unit;
         }
-        else if (unitCode == Unit::Worker) {
-            return Worker(m_x, m_y);
-        }
+        if (unitCode == Unit::Worker) {
+            unit = new Worker(m_x, m_y);
+            return unit;
+		}
         return nullptr;
     };
 };

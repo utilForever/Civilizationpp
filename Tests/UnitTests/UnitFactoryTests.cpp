@@ -12,5 +12,16 @@ TEST_F(UnitFactoryTest, UnitCodeMustDiff) {
     ASSERT_EQ(Unit::Codes::Worker, 1);
 }
 TEST_F(UnitFactoryTest, UnitFactoryCanCreatUnit) {
-    Setter setter = factory.CreatUnit<Setter>(Unit::Codes::Setter);
+    Setter* setter = dynamic_cast<Setter*>(factory.CreatUnit(Unit::Setter));
+    ASSERT_NE(setter, nullptr);
+    delete (setter);
+    setter = dynamic_cast<Setter*>(factory.CreatUnit(Unit::Worker));
+    ASSERT_EQ(setter, nullptr);
+    delete (setter);
+    Worker* worker = dynamic_cast<Worker*>(factory.CreatUnit(Unit::Worker));
+    ASSERT_NE(worker, nullptr);
+    delete (worker);
+    worker = dynamic_cast<Worker*>(factory.CreatUnit(Unit::Setter));
+    ASSERT_EQ(worker, nullptr);
+    delete (worker);
 }
