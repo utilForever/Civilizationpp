@@ -13,5 +13,15 @@ class UnitFactory {
 
  public:
     UnitFactory(int x, int y);
+    template <typename T>
+    auto CreatUnit(Unit::Codes unitCode) -> T& {
+        if (unitCode == Unit::Setter) {
+            return Setter(m_x, m_y);
+        }
+        else if (unitCode == Unit::Worker) {
+            return Worker(m_x, m_y);
+        }
+        return nullptr;
+    };
 };
 }  // namespace Civilizationpp
