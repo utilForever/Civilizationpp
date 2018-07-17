@@ -13,8 +13,8 @@ using eventFunction = std::function<int(HexTile)>;
 			virtual int GetFood() = 0;
 			virtual int GetProduction() = 0;
 			virtual int GetGold() = 0;
-			void ChangeFood(eventFunction f);
-			void ChangeProduction(eventFunction f);
-			void ChangeGold(eventFunction f);
+			void ChangeFood(eventFunction f) noexcept;
+            void ChangeProduction(eventFunction f) noexcept;
+            void ChangeGold(eventFunction f) noexcept;
     };
 }

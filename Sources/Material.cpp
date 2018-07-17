@@ -5,12 +5,12 @@ Obtainable::Obtainable() {
     Production = [](HexTile  t) -> int { return 0; };
     Gold = [](HexTile  t) -> int { return 0; };
 }
-void Obtainable::ChangeFood(eventFunction f) {
+void Obtainable::ChangeFood(eventFunction f) noexcept {
     Food = f;
 }
-void Obtainable::ChangeProduction(eventFunction f) {
+void Obtainable::ChangeProduction(eventFunction f) noexcept {
     Production = f;
 }
-void Obtainable::ChangeGold(eventFunction f) {
+void Obtainable::ChangeGold(eventFunction f) noexcept {
     Gold = f;
 }
