@@ -12,15 +12,15 @@ class ObtainableTileTest :public Obtainable
 public:
 	int GetFood() 
 	{
-		return Food(HexTile());
+		return Food();
 	}
     int GetProduction() 
 	{
-		return Production(HexTile());
+		return Production();
 	}
     int GetGold() 
 	{
-		return Gold(HexTile());
+		return Gold();
 	}
 };
 
@@ -34,6 +34,6 @@ TEST_F(WorkerTest, WorkerCanChangeTile)
     ObtainableTileTest tile;
     worker.Build(&tile);
     ASSERT_EQ(tile.GetFood(), 1);
-    worker.Build(&tile, [](HexTile tile) -> int { return 20; });
+    worker.Build(&tile, []() -> int { return 20; });
     ASSERT_EQ(tile.GetFood(), 20);
 }

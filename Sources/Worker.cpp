@@ -2,7 +2,7 @@
 using namespace Civilizationpp;
 void Worker::Build(Obtainable* tile)
 {
-	tile->ChangeFood([](HexTile t)->int { return 1; });
+	tile->ChangeFood([]()->int { return 1; });
 }
 void Worker::Build(Obtainable* tile, eventFunction f)
 {

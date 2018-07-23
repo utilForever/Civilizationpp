@@ -2,9 +2,9 @@
 using namespace Civilizationpp;
 Obtainable::Obtainable()
 {
-    Food = [](HexTile t) -> int { return 0; };
-    Production = [](HexTile  t) -> int { return 0; };
-    Gold = [](HexTile  t) -> int { return 0; };
+    Food = []() -> int { return 0; };
+    Production = []() -> int { return 0; };
+    Gold = []() -> int { return 0; };
 }
 void Obtainable::ChangeFood(eventFunction f) noexcept
 {

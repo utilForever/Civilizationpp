@@ -3,7 +3,7 @@
 #include <functional>
 namespace Civilizationpp
 {
-	using eventFunction = std::function<int(HexTile)>;
+	using eventFunction = std::function<int()>;
 	class Obtainable 
 	{
 	protected:
