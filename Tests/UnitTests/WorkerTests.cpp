@@ -34,6 +34,7 @@ TEST_F(WorkerTest, WorkerCanChangeTile)
     ObtainableTileTest tile;
     worker.Build(&tile);
     ASSERT_EQ(tile.GetFood(), 1);
-    worker.Build(&tile, []() -> int { return 20; });
+    int t = 10;
+    worker.Build(&tile, [t]() -> int { return t + 10; });
     ASSERT_EQ(tile.GetFood(), 20);
 }
