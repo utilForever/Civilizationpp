@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIVILIZATIONPP_OBTAINABLE
+#define CIVILIZATIONPP_OBTAINABLE
+
 #include <HexTile.h>
 #include <functional>
 
@@ -20,3 +22,4 @@ class Obtainable {
     void ChangeGold(eventFunction f) noexcept;
 };
 }  // namespace Civilizationpp
+#endif  // CIVILIZATIONPP_OBTAINABLE

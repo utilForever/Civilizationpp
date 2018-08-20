@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIVILIZATIONPP_WORKER
+#define CIVILIZATIONPP_WORKER
+
 #include <BaseUnit.h>
 #include <Material.h>
 
@@ -11,3 +13,4 @@ class Worker : public BaseUnit {
 };
 }  // namespace Civilizationpp
 
+#endif  // CIVILIZATIONPP_WORKER

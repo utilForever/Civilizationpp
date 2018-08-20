@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIVILAZATIONPP_SETTER
+#define CIVILAZATIONPP_SETTER
+
 #include <BaseUnit.h>
 
 namespace Civilizationpp {
@@ -8,3 +10,4 @@ class Setter : public BaseUnit {
 };
 }  // namespace Civilizationpp
 
+#endif  // CIVILAZATIONPP_SETTER

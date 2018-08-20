@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIVILAZATIONPP_BASE_UNIT
+#define CIVILAZATIONPP_BASE_UNIT
+
 #include <HexMap.h>
 #include <tuple>
 
@@ -14,3 +16,4 @@ class BaseUnit {
 };
 }  // namespace Civilizationpp
 
+#endif  // CIVILAZATIONPP_BASE_UNIT

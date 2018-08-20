@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CIVILIZATIONPP_UNIT_FACTORY
+#define CIVILIZATIONPP_UNIT_FACTORY
+
 #include <BaseUnit.h>
 #include <Setter.h>
 #include <Worker.h>
@@ -28,3 +30,4 @@ class UnitFactory {
     };
 };
 }  // namespace Civilizationpp
+#endif  // CIVILIZATIONPP_UNIT_FACTORY
