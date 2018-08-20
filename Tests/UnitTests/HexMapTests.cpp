@@ -14,13 +14,13 @@ protected:
 TEST_F(HexMapTest, HexMapShouldAlwaysHaveOrigin) 
 {
     HexTile* origin = hexMap.GetTile(0, 0);
-    ASSERT_NE(origin, nullptr);
+    ASSERT_NE(origin, static_cast<HexTile*>(nullptr));
 }
 
 TEST_F(HexMapTest, HexMapShouldReturnNullPtrForInvalidCoordinates)
 {
     HexTile* invalid = hexMap.GetTile(-100, -100);
-    ASSERT_EQ(invalid, nullptr);
+    ASSERT_EQ(invalid, static_cast<HexTile*>(nullptr));
 }
 
 TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
@@ -31,11 +31,11 @@ TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
         {
             if (r == -2 || r == 2)
             {
-                ASSERT_EQ(hexMap.GetTile(r, q), nullptr);
+                ASSERT_EQ(hexMap.GetTile(r, q), static_cast<HexTile*>(nullptr));
             }
             else
             {
-                ASSERT_NE(hexMap.GetTile(r, q), nullptr);    
+                ASSERT_NE(hexMap.GetTile(r, q), static_cast<HexTile*>(nullptr));    
             }
         }
     }
@@ -43,23 +43,23 @@ TEST_F(HexMapTest, HexMapShouldGenerateDefaultMapOnConstruction)
 
 TEST_F(HexMapTest, HexMapShouldSupportColumnWiseWraparound)
 {
-    ASSERT_NE(hexMap.GetTile(-1, -2), nullptr);
-    ASSERT_NE(hexMap.GetTile( 0, -2), nullptr);
-    ASSERT_NE(hexMap.GetTile(+1, -2), nullptr);
-    ASSERT_NE(hexMap.GetTile(-1, +2), nullptr);
-    ASSERT_NE(hexMap.GetTile( 0, +2), nullptr);
-    ASSERT_NE(hexMap.GetTile( 1, +2), nullptr);
+    ASSERT_NE(hexMap.GetTile(-1, -2), static_cast<HexTile*>(nullptr));
+    ASSERT_NE(hexMap.GetTile( 0, -2), static_cast<HexTile*>(nullptr));
+    ASSERT_NE(hexMap.GetTile(+1, -2), static_cast<HexTile*>(nullptr));
+    ASSERT_NE(hexMap.GetTile(-1, +2), static_cast<HexTile*>(nullptr));
+    ASSERT_NE(hexMap.GetTile( 0, +2), static_cast<HexTile*>(nullptr));
+    ASSERT_NE(hexMap.GetTile( 1, +2), static_cast<HexTile*>(nullptr));
 }
 
 TEST_F(HexMapTest, HexMapShouldNotSupportRowWiseWraparound)
 {
-    ASSERT_EQ(hexMap.GetTile(-2, -1), nullptr);
-    ASSERT_EQ(hexMap.GetTile(-2,  0), nullptr);
-    ASSERT_EQ(hexMap.GetTile(-2, +1), nullptr);
-    ASSERT_EQ(hexMap.GetTile(+2, -2), nullptr);
-    ASSERT_EQ(hexMap.GetTile(+2, -1), nullptr);
-    ASSERT_EQ(hexMap.GetTile(+2,  0), nullptr);
-    ASSERT_EQ(hexMap.GetTile(+2, +1), nullptr);
+    ASSERT_EQ(hexMap.GetTile(-2, -1), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(-2,  0), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(-2, +1), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(+2, -2), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(+2, -1), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(+2,  0), static_cast<HexTile*>(nullptr));
+    ASSERT_EQ(hexMap.GetTile(+2, +1), static_cast<HexTile*>(nullptr));
 }
 
 TEST_F(HexMapTest, HexMapShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
