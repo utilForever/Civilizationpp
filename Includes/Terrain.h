@@ -22,6 +22,13 @@ enum class TerrainName {
     LAkes,
     Oasis
 };
+struct Terrain {
+    BasicTerrain category;
+    TerrainName name;
+    int Movement;
+	int combat; //percent
+
+};
 }  // namespace Civilizationpp
 
 #endif  // CIVILAZATIONPP_TERRAIN
