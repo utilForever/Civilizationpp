@@ -3,9 +3,15 @@
 
 namespace Civilizationpp {
 struct Resource {
-    int Food;
-    int Production;
-    int Gold;
+ private:
+    int m_Food;
+    int m_Production;
+    int m_Gold;
+
+ public:
+    int GetFood();
+    int GetProduction();
+    int GetGold();
 };
 }  // namespace Civilizationpp
 #endif  // Resource
