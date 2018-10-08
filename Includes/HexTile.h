@@ -8,12 +8,12 @@ namespace Civilizationpp {
 
 	private:
 
-		BasicTerrain m_Terrain;
+		Terrain m_Terrain;
 
 	public:
 
-		BasicTerrain GetTerrain() { return m_Terrain; }
-		void ChangeTerrain(BasicTerrain Terrain) { m_Terrain = Terrain; }
+		Terrain GetTerrain() { return m_Terrain; }
+		void ChangeTerrain(Terrain terrain) { m_Terrain = terrain; }
 
 	};
 }  // namespace Civilizationpp
