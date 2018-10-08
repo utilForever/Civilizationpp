@@ -1,6 +1,8 @@
 #ifndef CIVILAZATIONPP_TERRAIN
 #define CIVILAZATIONPP_TERRAIN
 
+#include <Resource.h>
+
 namespace Civilizationpp {
 enum class BasicTerrain { Open, Rough, Lake, Coast, Ocean, Fresh_Water };
 enum class TerrainName {
@@ -23,11 +25,18 @@ enum class TerrainName {
     Oasis
 };
 struct Terrain {
-    BasicTerrain category;
-    TerrainName name;
-    int Movement;
-	int combat; //percent
-
+ private:
+    BasicTerrain m_Category;
+    TerrainName m_Name;
+    int m_Movement;
+	int m_combat; //percent
+    Resource m_Resource;
+ public:
+    BasicTerrain GetCategory();
+    TerrainName GetName();
+    int GetMovement();
+    int GetCombat();
+    Resource GetResource();
 };
 }  // namespace Civilizationpp
 
