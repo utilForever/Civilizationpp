@@ -9,9 +9,9 @@ struct Resource {
     int m_Gold;
 
  public:
-    int GetFood();
-    int GetProduction();
-    int GetGold();
+    int GetFood() const;
+    int GetProduction() const;
+    int GetGold() const;
 };
 }  // namespace Civilizationpp
 #endif  // Resource
