@@ -29,14 +29,15 @@ struct Terrain {
     BasicTerrain m_Category;
     TerrainName m_Name;
     int m_Movement;
-	int m_combat; //percent
+    int m_Combat;  // percent
     Resource m_Resource;
+
  public:
-    BasicTerrain GetCategory();
-    TerrainName GetName();
-    int GetMovement();
-    int GetCombat();
-    Resource GetResource();
+    BasicTerrain GetCategory() const;
+    TerrainName GetName() const;
+    int GetMovement() const;
+    int GetCombat() const;
+    Resource GetResource() const;
 };
 }  // namespace Civilizationpp
 
