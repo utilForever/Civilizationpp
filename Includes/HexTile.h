@@ -10,8 +10,8 @@ class HexTile {
 
  public:
     Terrain GetTerrain() { return m_Terrain; }
-    void ChangeTerrain(Terrain terrain) { m_Terrain = terrain; }
-    void ChangeResource(Resource resource) {
+    void ChangeTerrain(Terrai*n terrain) { m_Terrain = terrain; }
+    void ChangeResource(Resource* resource) {
         m_Terrain.ChangeResource(resource);
     }
 };
