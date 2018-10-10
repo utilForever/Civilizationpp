@@ -14,16 +14,16 @@ class UnitFactory {
  private:
     int m_x;
     int m_y;
-
+    HexMap* m_map;
  public:
-    UnitFactory(int x, int y);
+    UnitFactory(HexMap* map, int x, int y);
     auto CreatUnit(Unit::Codes unitCode) -> BaseUnit* {
         BaseUnit* unit;
         if (unitCode == Unit::Codes::Setter) {
-            unit = new Setter(m_x, m_y);
+            unit = new Setter(m_map, m_x, m_y);
             return unit;
         } else if (unitCode == Unit::Codes::Worker) {
-            unit = new Worker(m_x, m_y);
+            unit = new Worker(m_map, m_x, m_y);
             return unit;
         }
         return nullptr;
