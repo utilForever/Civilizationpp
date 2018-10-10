@@ -1,8 +1,10 @@
 #include <Worker.h>
 
 using namespace Civilizationpp;
-void Worker::Build(Obtainable* tile) {
-    tile->ChangeFood([]() -> int { return 1; });
+void Worker::Build(Resource* tile) {
+    auto [x, y] = GetPosition();
+    
+	m_map->GetTile(x, y)->ChangeResource(tile);
 }
-void Worker::Build(Obtainable* tile, eventFunction f) { tile->ChangeFood(f); }
-Worker::Worker(int x, int y) : BaseUnit(x, y) {}
+void Worker::Build(HexTile* tile, Resource* f) {}
+Worker::Worker(HexMap* map, int x, int y) : BaseUnit(map, x, y) {}

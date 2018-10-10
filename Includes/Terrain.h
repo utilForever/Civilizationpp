@@ -38,7 +38,7 @@ struct Terrain {
     int GetMovement() const;
     int GetCombat() const;
     Resource GetResource() const;
-    void ChangeResource(Resource resource);
+    void ChangeResource(Resource* resource);
 };
 }  // namespace Civilizationpp
 
