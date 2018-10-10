@@ -4,7 +4,7 @@
 using namespace Civilizationpp;
 class BaseUnitTest : public ::testing::Test {
  protected:
-    BaseUnit baseunit{1, 2};
+    BaseUnit baseunit{new HexMap(GameSettings(3, 4)), 1, 2};
 };
 TEST_F(BaseUnitTest, BaseUnitShuldCanMove) {
     auto position = baseunit.Move(+1, -3);
