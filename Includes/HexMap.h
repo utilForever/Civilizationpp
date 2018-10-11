@@ -11,6 +11,9 @@ namespace Civilizationpp
     class HexMap
     {
     public:
+        HexMap(const HexMap&) = delete;
+        HexMap& operator=(const HexMap&) = delete;
+
         static HexMap* GetInstance();
 
         void Generate(GameSettings settings);
