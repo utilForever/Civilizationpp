@@ -1,6 +1,6 @@
-steps:
-- script: mkdir build
-- script: cd build
-- script: cmake ..
-- script: make -j 8
-- script: bin/UnitTests
+- script: |
+    mkdir build
+    cd build
+    cmake ..
+    make -j 8
+    bin/UnitTests
