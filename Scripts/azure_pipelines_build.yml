@@ -1,3 +1,7 @@
+steps:
+- checkout: self
+  fetchDepth: 2
+  submodules: true
 - script: |
     mkdir build
     cd build
