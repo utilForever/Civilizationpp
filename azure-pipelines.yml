@@ -1,6 +1,6 @@
 jobs:
-- job: Linux
+- job: macOS
   pool:
-    vmImage: 'Ubuntu-18.04'
+    vmImage: 'macOS 10.13'
   steps:
   - template: Scripts/azure_pipelines_build.yml # Template reference
