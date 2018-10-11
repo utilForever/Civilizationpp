@@ -11,19 +11,22 @@ namespace Civilizationpp
     class HexMap
     {
     public:
-        HexMap(GameSettings settings);
-        HexMap(const HexMap& other);
-        HexMap(HexMap&& other) noexcept;
-        ~HexMap() noexcept;
+        HexMap(const HexMap&) = delete;
+        HexMap& operator=(const HexMap&) = delete;
 
-        HexMap& operator=(const HexMap& other);
-        HexMap& operator=(HexMap&& other) noexcept;
+        static HexMap* GetInstance();
+
+        void Generate(GameSettings settings);
 
         HexTile* GetTile(int r, int q) const;
-
         std::vector<HexTile*> GetAdjacencies(int r, int q) const;
 
     private:
+        HexMap();
+        ~HexMap();
+
+        static HexMap* instance;
+
         // Since map won't be changed after its creation (individual
         // tiles may change, but the property of map like size won't
         // change) it would be better to use static-sized array,
@@ -36,6 +39,6 @@ namespace Civilizationpp
         std::vector<HexTile> m_map;
         GameSettings m_settings;
     };
-}
+}  // namespace Civilizationpp
 
 #endif //CIVILIZATIONPP_HEX_MAP_H

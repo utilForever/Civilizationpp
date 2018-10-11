@@ -7,51 +7,33 @@
 
 using namespace Civilizationpp;
 
-HexMap::HexMap(GameSettings settings) :
-    m_settings(settings),
-    m_map(settings.rowCount * settings.colCount)
+HexMap* HexMap::instance = nullptr;
+
+HexMap* HexMap::GetInstance()
 {
+    if (instance == nullptr)
+    {
+        instance = new HexMap();
+    }
+
+    return instance;
 }
 
-HexMap::HexMap(const HexMap& other) :
-    m_settings(other.m_settings),
-    m_map(other.m_map)
+void HexMap::Generate(GameSettings settings)
 {
+    m_settings = settings;
+    m_map.resize(settings.rowCount * settings.colCount);
 }
 
-HexMap::HexMap(HexMap&& other) noexcept :
-    m_settings(other.m_settings),
-    m_map(std::move(other.m_map))
+HexMap::HexMap() :
+    m_settings(0, 0),
+    m_map()
 {
 }
 
 HexMap::~HexMap()
 {
-}
-
-HexMap& HexMap::operator=(const HexMap& other)
-{
-    if (this == &other)
-    {
-        return *this;
-    }
-
-    HexMap temp{other};
-    *this = std::move(temp);
-    return *this;
-}
-
-HexMap& HexMap::operator=(HexMap&& other) noexcept
-{
-    if(this == &other)
-    {
-        return *this;
-    }
-
-    m_map = std::move(other.m_map);
-    m_settings = other.m_settings;
-
-    return *this;
+    delete instance;
 }
 
 HexTile* HexMap::GetTile(int r, int q) const
