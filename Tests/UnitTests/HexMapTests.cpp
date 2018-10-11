@@ -10,7 +10,7 @@ class HexMapTest : public ::testing::Test
 protected:
     void SetUp() override
     {
-        HexMap::GetInstance()->generate(GameSettings(3, 3));
+        HexMap::GetInstance()->Generate(GameSettings(3, 3));
     }
 };
 

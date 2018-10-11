@@ -13,7 +13,7 @@ namespace Civilizationpp
     public:
         static HexMap* GetInstance();
 
-        void generate(GameSettings settings);
+        void Generate(GameSettings settings);
 
         HexTile* GetTile(int r, int q) const;
         std::vector<HexTile*> GetAdjacencies(int r, int q) const;

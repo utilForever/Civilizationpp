@@ -19,7 +19,7 @@ HexMap* HexMap::GetInstance()
     return instance;
 }
 
-void HexMap::generate(GameSettings settings)
+void HexMap::Generate(GameSettings settings)
 {
     m_settings = settings;
     m_map.resize(settings.rowCount * settings.colCount);
@@ -33,6 +33,7 @@ HexMap::HexMap() :
 
 HexMap::~HexMap()
 {
+    delete instance;
 }
 
 HexTile* HexMap::GetTile(int r, int q) const
