@@ -3,6 +3,6 @@ jobs:
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
-    - checkout: self
-      submodules: true
-      template: Scripts/azure_pipelines_build.yml # Template reference
+  - template: Scripts/azure_pipelines_build.yml # Template reference
+    checkout: self
+    submodules: true
