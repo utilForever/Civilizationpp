@@ -1,6 +1,6 @@
 jobs:
 - job: Linux
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'Ubuntu-18.04'
   steps:
   - template: Scripts/azure_pipelines_build.yml # Template reference
