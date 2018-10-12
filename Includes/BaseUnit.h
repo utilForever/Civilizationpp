@@ -10,8 +10,6 @@ class BaseUnit {
     int m_positionX{0};
     int m_positionY{0};
 
- protected:
-    HexMap* m_map;
  public:
     BaseUnit(HexMap* map, int x, int y);
     virtual ~BaseUnit() = default;
