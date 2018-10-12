@@ -16,6 +16,7 @@ steps:
           configuration: Release
           platform: x64
   - phase: postBuild
+    steps:
       - scripts: |
           cd bin
           cd Release
