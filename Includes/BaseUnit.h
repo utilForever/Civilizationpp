@@ -13,6 +13,7 @@ class BaseUnit {
  public:
     BaseUnit(int x, int y);
     virtual std::pair<int, int> Move(int x, int y) noexcept;
+    std::pair<int, int> GetPosition();
 };
 }  // namespace Civilizationpp
 

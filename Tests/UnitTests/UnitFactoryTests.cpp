@@ -5,7 +5,7 @@
 using namespace Civilizationpp;
 class UnitFactoryTest : public ::testing::Test {
  protected:
-    UnitFactory factory{1, 1};
+    UnitFactory factory{new HexMap(GameSettings(3, 4)), 1, 1};
 };
 
 TEST_F(UnitFactoryTest, UnitFactoryCanCreatUnit) {
