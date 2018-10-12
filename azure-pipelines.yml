@@ -1,6 +1,16 @@
 jobs:
+- job: Windows
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - template: Scripts/azure_pipelines_build.yml
+- job: Linux
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  steps:
+  - template: Scripts/azure_pipelines_build.yml
 - job: macOS
   pool:
     vmImage: 'macOS 10.13'
   steps:
-  - template: Scripts/azure_pipelines_build.yml # Template reference
+  - template: Scripts/azure_pipelines_build.yml
