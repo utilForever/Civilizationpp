@@ -8,6 +8,5 @@ steps:
       cmake .. -G "Visual Studio 15 2017 Win64"
   - task: VSBuild@1
       inputs:
-        solution: Civilizationpp.sln
         configuration: Release
         platform: x64
