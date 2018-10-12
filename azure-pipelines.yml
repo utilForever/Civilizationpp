@@ -3,7 +3,7 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - template: Scripts/azure_pipelines_build.yml
+  - template: Scripts/azure_pipelines_build_windows.yml
 - job: Linux
   pool:
     vmImage: 'Ubuntu-16.04'

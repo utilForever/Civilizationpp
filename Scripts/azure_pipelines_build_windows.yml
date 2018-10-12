@@ -1,0 +1,16 @@
+steps:
+- checkout: self
+  fetchDepth: 2
+  submodules: true
+- script: |
+    md build
+    cd build
+    cmake .. -G "Visual Studio 15 2017 Win64"
+    cd bin
+- inputs:
+    solution: Civilizationpp.sln
+    configuration: Release
+    platform: x64
+- script: |
+    cd Release
+    UnitTests.exe
