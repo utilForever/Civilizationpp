@@ -6,7 +6,7 @@
 namespace Civilizationpp {
 class Setter : public BaseUnit {
  public:
-    Setter(HexMap* map, int x, int y);
+    Setter(int x, int y);
 };
 }  // namespace Civilizationpp
 

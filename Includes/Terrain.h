@@ -30,7 +30,7 @@ struct Terrain {
     TerrainName m_Name;
     int m_Movement;
     int m_Combat;  // percent
-    Resource m_Resource;
+    Resource* m_Resource;
 
  public:
     BasicTerrain GetCategory() const;

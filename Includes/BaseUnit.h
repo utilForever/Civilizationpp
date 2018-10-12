@@ -13,7 +13,7 @@ class BaseUnit {
  protected:
     HexMap* m_map;
  public:
-    BaseUnit(HexMap* map,int x, int y);
+    BaseUnit(int x, int y);
     virtual std::pair<int, int> Move(int x, int y) noexcept;
     std::pair<int, int> GetPosition();
 };

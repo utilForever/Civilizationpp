@@ -6,13 +6,13 @@
 namespace Civilizationpp {
 class HexTile {
  private:
-    Terrain m_Terrain;
+    Terrain* m_Terrain;
 
  public:
-    Terrain GetTerrain() { return m_Terrain; }
-    void ChangeTerrain(Terrai*n terrain) { m_Terrain = terrain; }
+    Terrain* GetTerrain() { return m_Terrain; }
+    void ChangeTerrain(Terrain* terrain) { m_Terrain = terrain; }
     void ChangeResource(Resource* resource) {
-        m_Terrain.ChangeResource(resource);
+        m_Terrain->ChangeResource(resource);
     }
 };
 }  // namespace Civilizationpp
