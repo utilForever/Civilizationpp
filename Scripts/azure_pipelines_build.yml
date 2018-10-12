@@ -1,6 +1,10 @@
 steps:
-- script: mkdir build
-- script: cd build
-- script: cmake ..
-- script: make -j 8
-- script: bin/UnitTests
+- checkout: self
+  fetchDepth: 2
+  submodules: true
+- script: |
+    mkdir build
+    cd build
+    cmake ..
+    make -j 8
+    bin/UnitTests
