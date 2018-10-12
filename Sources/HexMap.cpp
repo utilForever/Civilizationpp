@@ -26,8 +26,7 @@ void HexMap::Generate(GameSettings settings)
 }
 
 HexMap::HexMap() :
-    m_settings(0, 0),
-    m_map()
+    m_settings(0, 0)
 {
 }
 
