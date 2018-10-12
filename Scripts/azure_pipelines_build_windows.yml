@@ -6,7 +6,4 @@ steps:
       md build
       cd build
       cmake .. -G "Visual Studio 15 2017 Win64"
-  - task: VSBuild@0
-    inputs:
-      configuration: 'Release'
-      platform: 'x64'
+  - task: VSBuild@1
