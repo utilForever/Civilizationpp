@@ -7,7 +7,7 @@
 namespace Civilizationpp {
 class Worker : public BaseUnit {
  public:
-    Worker(HexMap* map, int x, int y);
+    Worker(int x, int y);
     void Build(Resource* tile);
     void Build(HexTile* tile, Resource* resource);
 };
