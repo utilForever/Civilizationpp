@@ -3,7 +3,7 @@
 #
 
 # Set warnings as errors flag
-option(CUBBYFLOW_WARNINGS_AS_ERRORS ON)
+option(CUBBYFLOW_WARNINGS_AS_ERRORS "Treat all warnings as errors" ON)
 if(CUBBYFLOW_WARNINGS_AS_ERRORS)
 	if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 		set(WARN_AS_ERROR_FLAGS	"/WX")
@@ -41,11 +41,7 @@ set(DEFAULT_INCLUDE_DIRECTORIES)
 # Libraries
 #
 
-set(DEFAULT_LIBRARIES
-	PUBLIC
-	${TASKING_SYSTEM_LIBS}
-	PRIVATE
-)
+set(DEFAULT_LIBRARIES)
 
 #
 # Compile definitions
@@ -56,12 +52,12 @@ set(DEFAULT_COMPILE_DEFINITIONS
 )
 
 # MSVC compiler options
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(DEFAULT_COMPILE_DEFINITIONS ${DEFAULT_COMPILE_DEFINITIONS}
 		_SCL_SECURE_NO_WARNINGS  # Calling any one of the potentially unsafe methods in the Standard C++ Library
 		_CRT_SECURE_NO_WARNINGS  # Calling any one of the potentially unsafe methods in the CRT Library
 	)
-endif()
+endif ()
 
 #
 # Compile options
@@ -70,13 +66,13 @@ endif()
 set(DEFAULT_COMPILE_OPTIONS)
 
 # MSVC compiler options
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	# remove default warning level from CMAKE_CXX_FLAGS
-	string(REGEX REPLACE "/W[0-4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+	string (REGEX REPLACE "/W[0-4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 endif()
 
 # MSVC compiler options
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(DEFAULT_COMPILE_OPTIONS ${DEFAULT_COMPILE_OPTIONS}
 		/MP           # -> build with multiple processes
 		/W4           # -> warning level 4
@@ -86,8 +82,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 		# /wd4592     # -> disable warning: 'identifier': symbol will be dynamically initialized (implementation limitation)
 		# /wd4201     # -> disable warning: nonstandard extension used: nameless struct/union (caused by GLM)
 		# /wd4127     # -> disable warning: conditional expression is constant (caused by Qt)
-		/wd4717       # -> disable warning: recursive on all control paths, function will cause runtime stack overflow (wrong warning)
-		/wd4819		  # -> disable warning: The file contains a character that cannot be represented in the current code page (949).
 
 		#$<$<CONFIG:Debug>:
 		#/RTCc        # -> value is assigned to a smaller data type and results in a data loss
@@ -102,16 +96,18 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 
 		# No manual c++11 enable for MSVC as all supported MSVC versions for cmake-init have C++11 implicitly enabled (MSVC >=2013)
 	)
-endif()
+endif ()
 
 # GCC and Clang compiler options
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	set(DEFAULT_COMPILE_OPTIONS ${DEFAULT_COMPILE_OPTIONS}
 		-Wall
+		-Wno-missing-braces
+
 		${WARN_AS_ERROR_FLAGS}
 		-std=c++1z
 	)
-endif()
+endif ()
 
 #
 # Linker options
@@ -120,8 +116,9 @@ endif()
 set(DEFAULT_LINKER_OPTIONS)
 
 # Use pthreads on mingw and linux
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_SYSTEM_NAME MATCHES "Linux")
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_SYSTEM_NAME MATCHES "Linux")
 	set(DEFAULT_LINKER_OPTIONS
 		-pthread
+		-lstdc++fs
 	)
 endif()
