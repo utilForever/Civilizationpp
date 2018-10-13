@@ -11,3 +11,5 @@ steps:
       solution: 'D:\a\1\s\build\Civilizationpp.sln'
       configuration: Release
       platform: x64
+  - script: |
+      D:\a\1\s\build\bin\Release\UnitTests.exe
