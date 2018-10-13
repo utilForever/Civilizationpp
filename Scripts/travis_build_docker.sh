@@ -4,8 +4,8 @@ set -e
 
 if [ $# -eq 0 ]
   then
-    docker build -t utilforever/Civilizationpp .
+    docker build -t utilforever/civilizationpp .
 else
-    docker build -f $1 -t utilforever/Civilizationpp:$2 .
+    docker build -f $1 -t utilforever/civilizationpp:$2 .
 fi
-docker run utilforever/Civilizationpp
+docker run utilforever/civilizationpp
