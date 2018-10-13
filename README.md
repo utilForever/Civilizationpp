@@ -4,7 +4,7 @@
 
 Civilization++ is civilization simulator using C++ with some reinforcement learning.
 
-[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/utilForever/Civilizationpp/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/utilForever/Civilizationpp/blob/master/LICENSE) [![Build Status](https://travis-ci.org/utilForever/Civilizationpp.svg?branch=master)](https://travis-ci.org/utilForever/Civilizationpp/branches) [![Build status](https://ci.appveyor.com/api/projects/status/github/utilForever/Civilizationpp?branch=master&svg=true)](https://ci.appveyor.com/project/utilForever/Civilizationpp/branch/master) [![Build Status](https://dev.azure.com/utilforever/Civilizationpp/_apis/build/status/utilForever.Civilizationpp)](https://dev.azure.com/utilforever/Civilizationpp/_build/latest?definitionId=1)
 
 ## Key Features
 
