@@ -6,10 +6,10 @@ int Civilizationpp::Terrain::GetCombat() const
 }
 Civilizationpp::Terrain::Terrain()
     : m_Category(BaseTerrain::Open),
-      m_Name(TerrainName::Plains),
-      m_Combat(0),
-      m_Movement(0)
+      m_Name(TerrainName::Plains)
 {
+    m_Movement = 0;
+    m_Combat = 0;
 }
 int Civilizationpp::Terrain::GetMovement() const
 {
