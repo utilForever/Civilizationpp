@@ -11,7 +11,7 @@ class BaseUnit {
     int m_positionY{0};
 
  public:
-    BaseUnit(HexMap* map, int x, int y);
+    BaseUnit(int x, int y);
     virtual ~BaseUnit() = default;
     
     virtual std::pair<int, int> Move(int x, int y) noexcept;
