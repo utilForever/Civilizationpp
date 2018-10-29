@@ -25,7 +25,7 @@ TEST_F(WorkerTest, WorkerCanChangeTile)
 {
     Resource res;
     worker.Build(&res);
-    auto [x, y] = worker.GetPosition();
-    ASSERT_EQ(HexMap::GetInstance()->GetTile(x, y)->GetTerrain()->GetResource(),
+    auto position = worker.GetPosition();
+    ASSERT_EQ(HexMap::GetInstance()->GetTile(position.first, position.second)->GetTerrain()->GetResource(),
               &res);
 }
