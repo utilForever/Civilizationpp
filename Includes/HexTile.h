@@ -3,15 +3,27 @@
 
 #include <Terrain.h>
 
-namespace Civilizationpp {
-class HexTile {
+namespace Civilizationpp
+{
+class HexTile
+{
  private:
     Terrain* m_Terrain;
 
  public:
-    Terrain* GetTerrain() { return m_Terrain; }
-    void ChangeTerrain(Terrain* terrain) { m_Terrain = terrain; }
-    void ChangeResource(Resource* resource) {
+    HexTile() : m_Terrain(&Terrain())
+    {
+    }
+    Terrain* GetTerrain()
+    {
+        return m_Terrain;
+    }
+    void ChangeTerrain(Terrain* terrain)
+    {
+        m_Terrain = terrain;
+    }
+    void ChangeResource(Resource* resource)
+    {
         m_Terrain->ChangeResource(resource);
     }
 };
