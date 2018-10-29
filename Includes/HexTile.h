@@ -11,8 +11,9 @@ class HexTile
     Terrain* m_Terrain;
 
  public:
-    HexTile() : m_Terrain(&Terrain())
+    HexTile()
     {
+        m_Terrain = new Terrain();
     }
     Terrain* GetTerrain()
     {
