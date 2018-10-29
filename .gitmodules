@@ -4,3 +4,5 @@
 [submodule "Libraries/googlebenchmark"]
 	path = Libraries/googlebenchmark
 	url = https://github.com/google/benchmark.git
+[submodule "bar1"]
+	branch = master
