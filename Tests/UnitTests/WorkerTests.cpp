@@ -1,29 +1,28 @@
+#include <Resource.h>
 #include <Worker.h>
 
 #include <gtest/gtest.h>
 
 using namespace Civilizationpp;
 
-class WorkerTest : public ::testing::Test {
+class WorkerTest : public ::testing::Test
+{
  protected:
-    Worker worker{0, 0};
-};
-class ObtainableTileTest : public Obtainable {
- public:
-    int GetFood() { return Food(); }
-    int GetProduction() { return Production(); }
-    int GetGold() { return Gold(); }
+    void SetUp() override
+    {
+        HexMap::GetInstance()->Generate(GameSettings(30, 30));
+    }
+    Worker worker{ 0, 0 };
 };
 
-TEST_F(WorkerTest, WorkerCanMoveAnywhere) {
-    auto position = worker.Move(1, 2);
+TEST_F(WorkerTest, WorkerCanMoveAnywhere)
+{
+    worker.Move(1, 2);
+    auto position = worker.GetPosition();
     ASSERT_EQ(position.first == 1, position.second == 2);
 }
-TEST_F(WorkerTest, WorkerCanChangeTile) {
-    ObtainableTileTest tile;
-    worker.Build(&tile);
-    ASSERT_EQ(tile.GetFood(), 1);
-    int t = 10;
-    worker.Build(&tile, [t]() -> int { return t + 10; });
-    ASSERT_EQ(tile.GetFood(), 20);
+TEST_F(WorkerTest, WorkerCanChangeTile)
+{
+    Resource s;
+
 }
