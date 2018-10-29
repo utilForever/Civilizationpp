@@ -3,9 +3,19 @@
 
 #include <Resource.h>
 
-namespace Civilizationpp {
-enum class BasicTerrain { Open, Rough, Lake, Coast, Ocean, Fresh_Water };
-enum class TerrainName {
+namespace Civilizationpp
+{
+enum class BaseTerrain
+{
+    Open,
+    Rough,
+    Lake,
+    Coast,
+    Ocean,
+    Fresh_Water
+};
+enum class TerrainName
+{
     Coast,
     Desert,
     GrassLand,
@@ -24,20 +34,22 @@ enum class TerrainName {
     LAkes,
     Oasis
 };
-struct Terrain {
+struct Terrain
+{
  private:
-    BasicTerrain m_Category;
+    BaseTerrain m_Category;
     TerrainName m_Name;
     int m_Movement;
     int m_Combat;  // percent
     Resource* m_Resource;
 
  public:
-    BasicTerrain GetCategory() const;
+    Terrain();
+    BaseTerrain GetCategory() const;
     TerrainName GetName() const;
     int GetMovement() const;
     int GetCombat() const;
-    Resource GetResource() const;
+    Resource* GetResource() const;
     void ChangeResource(Resource* resource);
 };
 }  // namespace Civilizationpp
