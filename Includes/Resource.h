@@ -9,6 +9,7 @@ struct Resource {
     int m_Gold;
 
  public:
+    Resource();
     int GetFood() const;
     int GetProduction() const;
     int GetGold() const;
