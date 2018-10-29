@@ -14,7 +14,6 @@ class UnitFactory {
  private:
     int m_x;
     int m_y;
-    HexMap* m_map;
  public:
     UnitFactory(int x, int y);
     auto CreatUnit(Unit::Codes unitCode) -> BaseUnit* {
