@@ -37,11 +37,11 @@ enum class TerrainName
 struct Terrain
 {
  private:
-    BaseTerrain m_Category;
-    TerrainName m_Name;
-    int m_Movement;
-    int m_Combat;  // percent
-    Resource* m_Resource;
+    BaseTerrain m_category;
+    TerrainName m_name;
+    int m_movement;
+    int m_combat;  // percent
+    Resource* m_pResource;
 
  public:
     Terrain();

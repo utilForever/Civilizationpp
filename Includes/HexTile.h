@@ -8,24 +8,24 @@ namespace Civilizationpp
 class HexTile
 {
  private:
-    Terrain* m_Terrain;
+    Terrain* m_pTerrain;
 
  public:
     HexTile()
     {
-        m_Terrain = new Terrain();
+        m_pTerrain = new Terrain();
     }
-    Terrain* GetTerrain()
+    Terrain* GetTerrain() const
     {
-        return m_Terrain;
+        return m_pTerrain;
     }
-    void ChangeTerrain(Terrain* terrain)
+    void SetTerrain(Terrain* terrain)
     {
-        m_Terrain = terrain;
+        m_pTerrain = terrain;
     }
     void ChangeResource(Resource* resource)
     {
-        m_Terrain->ChangeResource(resource);
+        m_pTerrain->ChangeResource(resource);
     }
 };
 }  // namespace Civilizationpp

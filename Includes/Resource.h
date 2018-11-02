@@ -4,9 +4,9 @@
 namespace Civilizationpp {
 struct Resource {
  private:
-    int m_Food;
-    int m_Production;
-    int m_Gold;
+    int m_food;
+    int m_production;
+    int m_gold;
 
  public:
     Resource();
