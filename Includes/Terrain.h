@@ -1,5 +1,5 @@
-#ifndef CIVILAZATIONPP_TERRAIN
-#define CIVILAZATIONPP_TERRAIN
+#ifndef CIVILIZATIONPP_TERRAIN_H
+#define CIVILIZATIONPP_TERRAIN_H
 
 #include <Resource.h>
 
@@ -12,8 +12,9 @@ enum class BaseTerrain
     Lake,
     Coast,
     Ocean,
-    Fresh_Water
+    FreshWater
 };
+
 enum class TerrainName
 {
     Coast,
@@ -34,24 +35,26 @@ enum class TerrainName
     LAkes,
     Oasis
 };
-struct Terrain
-{
- private:
-    BaseTerrain m_category;
-    TerrainName m_name;
-    int m_movement;
-    int m_combat;  // percent
-    Resource* m_pResource;
 
+class Terrain
+{
  public:
     Terrain();
+
     BaseTerrain GetCategory() const;
     TerrainName GetName() const;
     int GetMovement() const;
     int GetCombat() const;
     Resource* GetResource() const;
     void ChangeResource(Resource* resource);
+
+ private:
+    BaseTerrain m_category;
+    TerrainName m_name;
+    int m_movement;
+    int m_combat;
+    Resource* m_pResource;
 };
 }  // namespace Civilizationpp
 
-#endif  // CIVILAZATIONPP_TERRAIN
+#endif  // CIVILIZATIONPP_TERRAIN_H

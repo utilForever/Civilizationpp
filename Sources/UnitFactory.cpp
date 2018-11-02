@@ -1,6 +1,7 @@
 #include <UnitFactory.h>
 
 using namespace Civilizationpp;
+
 UnitFactory::UnitFactory(int x, int y)
 {
     m_x = x;
@@ -10,6 +11,7 @@ UnitFactory::UnitFactory(int x, int y)
 BaseUnit* UnitFactory::CreatUnit(Unit::Codes unitCode)
 {
     BaseUnit* unit;
+
     if (unitCode == Unit::Codes::Setter)
     {
         unit = new Setter(m_x, m_y);
@@ -20,5 +22,6 @@ BaseUnit* UnitFactory::CreatUnit(Unit::Codes unitCode)
         unit = new Worker(m_x, m_y);
         return unit;
     }
+
     return nullptr;
 };

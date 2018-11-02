@@ -1,5 +1,5 @@
-#ifndef CIVILIZATIONPP_UNIT_FACTORY
-#define CIVILIZATIONPP_UNIT_FACTORY
+#ifndef CIVILIZATIONPP_UNIT_FACTORY_H
+#define CIVILIZATIONPP_UNIT_FACTORY_H
 
 #include <BaseUnit.h>
 #include <Setter.h>
@@ -18,13 +18,14 @@ enum class Codes
 
 class UnitFactory
 {
- private:
-    int m_x;
-    int m_y;
-
  public:
     UnitFactory(int x, int y);
     BaseUnit* CreatUnit(Unit::Codes unitCode);
+
+ private:
+    int m_x;
+    int m_y;
 };
 }  // namespace Civilizationpp
-#endif  // CIVILIZATIONPP_UNIT_FACTORY
+
+#endif  // CIVILIZATIONPP_UNIT_FACTORY_H

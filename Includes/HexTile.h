@@ -5,17 +5,18 @@
 
 namespace Civilizationpp
 {
-	class HexTile
-	{
-	 private:
-		Terrain* m_pTerrain;
+class HexTile
+{
+ public:
+    HexTile();
 
-	 public:
-		HexTile();
-		Terrain* GetTerrain() const;
-		void SetTerrain(Terrain* terrain);
-		void ChangeResource(Resource* resource);
-	};
+    Terrain* GetTerrain() const;
+    void SetTerrain(Terrain* terrain);
+    void ChangeResource(Resource* resource);
+
+ private:
+    Terrain* m_pTerrain;
+};
 }  // namespace Civilizationpp
 
 #endif  // CIVILIZATIONPP_HEX_TILE_H

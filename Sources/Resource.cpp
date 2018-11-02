@@ -1,4 +1,5 @@
 #include <Resource.h>
+
 using namespace Civilizationpp;
 
 Resource::Resource()

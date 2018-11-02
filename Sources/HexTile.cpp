@@ -1,4 +1,5 @@
 #include <HexTile.h>
+
 using namespace Civilizationpp;
 
 HexTile::HexTile()

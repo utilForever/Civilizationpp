@@ -4,6 +4,7 @@ using namespace Civilizationpp;
 
 Worker::Worker(int x, int y) : BaseUnit(x, y)
 {
+    // Do nothing
 }
 
 void Worker::Build(Resource* resource)

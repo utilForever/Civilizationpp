@@ -7,16 +7,16 @@
 
 using namespace Civilizationpp;
 
-HexMap* HexMap::instance = nullptr;
+HexMap* HexMap::m_instance = nullptr;
 
 HexMap* HexMap::GetInstance()
 {
-    if (instance == nullptr)
+    if (m_instance == nullptr)
     {
-        instance = new HexMap();
+        m_instance = new HexMap();
     }
 
-    return instance;
+    return m_instance;
 }
 
 void HexMap::Generate(GameSettings settings)
@@ -25,14 +25,14 @@ void HexMap::Generate(GameSettings settings)
     m_map.resize(settings.rowCount * settings.colCount);
 }
 
-HexMap::HexMap() :
-    m_settings(0, 0)
+HexMap::HexMap() : m_settings(0, 0)
 {
+    // Do nothing
 }
 
 HexMap::~HexMap()
 {
-    delete instance;
+    delete m_instance;
 }
 
 HexTile* HexMap::GetTile(int r, int q) const
@@ -58,12 +58,14 @@ HexTile* HexMap::GetTile(int r, int q) const
 
     // Convert 2d array index into 1d array index
     int index = tileCol + tileRow * colCount;
-    return const_cast<HexTile *>(&(m_map[index]));
+
+    return const_cast<HexTile*>(&(m_map[index]));
 }
 
 std::vector<HexTile*> HexMap::GetAdjacencies(int r, int q) const
 {
     std::vector<HexTile*> ret{};
+
     ret.push_back(GetTile(r - 1, q));
     ret.push_back(GetTile(r - 1, q + 1));
     ret.push_back(GetTile(r, q + 1));
@@ -71,5 +73,6 @@ std::vector<HexTile*> HexMap::GetAdjacencies(int r, int q) const
     ret.push_back(GetTile(r + 1, q - 1));
     ret.push_back(GetTile(r, q - 1));
     ret.erase(std::remove(ret.begin(), ret.end(), nullptr), ret.end());
+
     return ret;
 }

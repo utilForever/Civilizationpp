@@ -15,7 +15,7 @@ std::pair<int, int> BaseUnit::Move(int x, int y) noexcept
     return { m_positionX, m_positionY };
 }
 
-std::pair<int, int> Civilizationpp::BaseUnit::GetPosition()
+std::pair<int, int> BaseUnit::GetPosition()
 {
     return { m_positionX, m_positionY };
 }

@@ -1,18 +1,22 @@
-#ifndef CIVILIZATIONPP_RESOURCE
-#define CIVILIZATIONPP_RESOURCE
+#ifndef CIVILIZATIONPP_RESOURCE_H
+#define CIVILIZATIONPP_RESOURCE_H
 
-namespace Civilizationpp {
-class Resource {
+namespace Civilizationpp
+{
+class Resource
+{
+ public:
+    Resource();
+
+    int GetFood() const;
+    int GetProduction() const;
+    int GetGold() const;
+
  private:
     int m_food;
     int m_production;
     int m_gold;
-
- public:
-    Resource();
-    int GetFood() const;
-    int GetProduction() const;
-    int GetGold() const;
 };
 }  // namespace Civilizationpp
-#endif  // Resource
+
+#endif  // CIVILIZATIONPP_RESOURCE_H
