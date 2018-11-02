@@ -35,7 +35,7 @@ HexMap::~HexMap()
     delete m_instance;
 }
 
-HexTile* HexMap::GetTile(int r, int q) const
+const HexTile* HexMap::GetTile(int r, int q) const
 {
     const int rowCount = static_cast<int>(m_settings.rowCount);
     const int colCount = static_cast<int>(m_settings.colCount);
@@ -59,12 +59,12 @@ HexTile* HexMap::GetTile(int r, int q) const
     // Convert 2d array index into 1d array index
     int index = tileCol + tileRow * colCount;
 
-    return const_cast<HexTile*>(&(m_map[index]));
+    return &m_map[index];
 }
 
-std::vector<HexTile*> HexMap::GetAdjacencies(int r, int q) const
+std::vector<const HexTile*> HexMap::GetAdjacencies(int r, int q) const
 {
-    std::vector<HexTile*> ret{};
+    std::vector<const HexTile*> ret{};
 
     ret.push_back(GetTile(r - 1, q));
     ret.push_back(GetTile(r - 1, q + 1));

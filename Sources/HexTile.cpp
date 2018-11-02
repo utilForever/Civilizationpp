@@ -17,7 +17,7 @@ void HexTile::SetTerrain(Terrain* terrain)
     m_pTerrain = terrain;
 }
 
-void HexTile::ChangeResource(Resource* resource)
+void HexTile::ChangeResource(Resource* resource) const
 {
     m_pTerrain->ChangeResource(resource);
 }

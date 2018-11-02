@@ -18,8 +18,8 @@ class HexMap
 
     void Generate(GameSettings settings);
 
-    HexTile* GetTile(int r, int q) const;
-    std::vector<HexTile*> GetAdjacencies(int r, int q) const;
+    const HexTile* GetTile(int r, int q) const;
+    std::vector<const HexTile*> GetAdjacencies(int r, int q) const;
 
  private:
     HexMap();

@@ -9,7 +9,7 @@ TEST(HexMap, ShouldAlwaysHaveOrigin)
 {
     HexMap::GetInstance()->Generate(GameSettings(3, 3));
 
-    HexTile* origin = HexMap::GetInstance()->GetTile(0, 0);
+    const HexTile* origin = HexMap::GetInstance()->GetTile(0, 0);
     ASSERT_NE(origin, static_cast<HexTile*>(nullptr));
 }
 
@@ -17,7 +17,7 @@ TEST(HexMap, ShouldReturnNullptrForInvalidCoordinates)
 {
     HexMap::GetInstance()->Generate(GameSettings(3, 3));
 
-    HexTile* invalid = HexMap::GetInstance()->GetTile(-100, -100);
+    const HexTile* invalid = HexMap::GetInstance()->GetTile(-100, -100);
     ASSERT_EQ(invalid, static_cast<HexTile*>(nullptr));
 }
 
@@ -85,7 +85,7 @@ TEST(HexMap, ShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
 {
     HexMap::GetInstance()->Generate(GameSettings(3, 3));
 
-    std::vector<HexTile*> adjacenciesToOrigin =
+    std::vector<const HexTile*> adjacenciesToOrigin =
         HexMap::GetInstance()->GetAdjacencies(0, 0);
     ASSERT_NE(std::find(adjacenciesToOrigin.begin(), adjacenciesToOrigin.end(),
                         HexMap::GetInstance()->GetTile(-1, 0)),
@@ -107,7 +107,7 @@ TEST(HexMap, ShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
               adjacenciesToOrigin.end());
     ASSERT_EQ(adjacenciesToOrigin.size(), (size_t)6);
 
-    std::vector<HexTile*> adjacenciesToEdge =
+    std::vector<const HexTile*> adjacenciesToEdge =
         HexMap::GetInstance()->GetAdjacencies(-1, -1);
     ASSERT_NE(std::find(adjacenciesToEdge.begin(), adjacenciesToEdge.end(),
                         HexMap::GetInstance()->GetTile(-1, -2)),
