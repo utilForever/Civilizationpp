@@ -2,7 +2,7 @@
 #define CIVILIZATIONPP_RESOURCE
 
 namespace Civilizationpp {
-struct Resource {
+class Resource {
  private:
     int m_food;
     int m_production;

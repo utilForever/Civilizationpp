@@ -3,8 +3,10 @@
 
 #include <BaseUnit.h>
 
-namespace Civilizationpp {
-class Worker : public BaseUnit {
+namespace Civilizationpp
+{
+class Worker : public BaseUnit
+{
  public:
     Worker(int x, int y);
     void Build(Resource* tile);
