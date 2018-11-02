@@ -20,7 +20,7 @@ class UnitFactory
 {
  public:
     UnitFactory(int x, int y);
-    BaseUnit* CreatUnit(Unit::Codes unitCode);
+    BaseUnit* CreateUnit(Unit::Codes unitCode);
 
  private:
     int m_x;

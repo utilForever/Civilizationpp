@@ -8,7 +8,7 @@ UnitFactory::UnitFactory(int x, int y)
     m_y = y;
 }
 
-BaseUnit* UnitFactory::CreatUnit(Unit::Codes unitCode)
+BaseUnit* UnitFactory::CreateUnit(Unit::Codes unitCode)
 {
     BaseUnit* unit;
 
