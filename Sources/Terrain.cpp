@@ -5,8 +5,7 @@ int Civilizationpp::Terrain::GetCombat() const
     return m_combat;
 }
 Civilizationpp::Terrain::Terrain()
-    : m_category(BaseTerrain::Open),
-      m_name(TerrainName::Plains)
+    : m_category(BaseTerrain::Open), m_name(TerrainName::Plains)
 {
     m_movement = 0;
     m_combat = 0;
