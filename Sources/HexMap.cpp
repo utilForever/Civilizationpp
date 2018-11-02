@@ -45,7 +45,7 @@ const HexTile* HexMap::GetTile(int r, int q) const
     int originCol = (colCount - 1) / 2;
 
     int tileRow = originRow + r;
-    if (originRow + r < 0 || originRow + r >= rowCount)
+    if (tileRow < 0 || tileRow >= rowCount)
     {
         return nullptr;
     }
