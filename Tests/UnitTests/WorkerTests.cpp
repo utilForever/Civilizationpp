@@ -14,7 +14,7 @@ TEST(Worker, CanMoveAnywhere)
     worker.Move(1, 2);
 
     auto position = worker.GetPosition();
-    ASSERT_EQ(position.first == 1, position.second == 2);
+    ASSERT_TRUE(position.first == 1 && position.second == 2);
 }
 
 TEST(Worker, CanChangeTile)
