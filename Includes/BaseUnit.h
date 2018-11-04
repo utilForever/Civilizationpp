@@ -12,6 +12,7 @@ class BaseUnit
  private:
     int m_positionX{ 0 };
     int m_positionY{ 0 };
+    int m_movement{ 0 };
 
  public:
     BaseUnit(int x, int y);
