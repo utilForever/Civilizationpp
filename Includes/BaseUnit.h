@@ -19,7 +19,7 @@ class BaseUnit
     virtual ~BaseUnit() = default;
 
     virtual void Move(int x, int y) noexcept;
-    std::pair<int, int> GetPosition();
+    std::pair<int, int> GetPosition() const;
 };
 }  // namespace Civilizationpp
 

@@ -46,7 +46,7 @@ void BaseUnit::Move(int x, int y) noexcept
     }
 }
 
-std::pair<int, int> BaseUnit::GetPosition()
+std::pair<int, int> BaseUnit::GetPosition() const
 {
     return { m_positionX, m_positionY };
 }

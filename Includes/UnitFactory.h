@@ -17,6 +17,7 @@ class UnitFactory
 {
  public:
     UnitFactory(int x, int y);
+
     BaseUnit* CreateUnit(UnitCodes unitCode);
 
  private:
