@@ -37,14 +37,14 @@ HexMap::~HexMap()
 
 const HexTile* HexMap::GetTile(int r, int q) const
 {
-    const int rowCount = static_cast<int>(m_settings.rowCount);
-    const int colCount = static_cast<int>(m_settings.colCount);
+    const auto rowCount = static_cast<int>(m_settings.rowCount);
+    const auto colCount = static_cast<int>(m_settings.colCount);
 
     // Convert axial coordinates into 2d array index
-    int originRow = (rowCount - 1) / 2;
-    int originCol = (colCount - 1) / 2;
+    const int originRow = (rowCount - 1) / 2;
+    const int originCol = (colCount - 1) / 2;
 
-    int tileRow = originRow + r;
+    const int tileRow = originRow + r;
     if (tileRow < 0 || tileRow >= rowCount)
     {
         return nullptr;
@@ -57,7 +57,7 @@ const HexTile* HexMap::GetTile(int r, int q) const
     }
 
     // Convert 2d array index into 1d array index
-    int index = tileCol + tileRow * colCount;
+    const int index = tileCol + tileRow * colCount;
 
     return &m_map[index];
 }
