@@ -7,20 +7,17 @@
 
 namespace Civilizationpp
 {
-namespace Unit
-{
-enum class Codes
+enum class UnitCodes
 {
     Setter = 0,
     Worker = 1
 };
-}
 
 class UnitFactory
 {
  public:
     UnitFactory(int x, int y);
-    BaseUnit* CreateUnit(Unit::Codes unitCode);
+    BaseUnit* CreateUnit(UnitCodes unitCode);
 
  private:
     int m_x;
