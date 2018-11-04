@@ -3,10 +3,10 @@
 
 namespace Civilizationpp
 {
-class Resource
+class BaseResource
 {
  public:
-    Resource();
+    BaseResource();
 
     int GetFood() const;
     int GetProduction() const;
