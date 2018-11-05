@@ -12,7 +12,7 @@ class HexTile
 
     Terrain* GetTerrain() const;
     void SetTerrain(Terrain* terrain);
-    void ChangeResource(Resource* resource) const;
+    void ChangeResource(BaseResource* resource) const;
 
  private:
     Terrain* m_pTerrain;

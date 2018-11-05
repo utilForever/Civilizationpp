@@ -1,7 +1,7 @@
 #ifndef CIVILIZATIONPP_TERRAIN_H
 #define CIVILIZATIONPP_TERRAIN_H
 
-#include <Resource.h>
+#include <BaseResource.h>
 
 namespace Civilizationpp
 {
@@ -45,15 +45,15 @@ class Terrain
     TerrainName GetName() const;
     int GetMovement() const;
     int GetCombat() const;
-    Resource* GetResource() const;
-    void ChangeResource(Resource* resource);
+    BaseResource* GetResource() const;
+    void ChangeResource(BaseResource* resource);
 
  private:
     BaseTerrain m_category;
     TerrainName m_name;
     int m_movement;
     int m_combat;
-    Resource* m_pResource;
+    BaseResource* m_pBaseResource;
 };
 }  // namespace Civilizationpp
 
