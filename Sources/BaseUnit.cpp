@@ -18,7 +18,15 @@ void BaseUnit::Move(int x, int y) noexcept
             // Do Nothing
             break;
         }
-        else if (vector == DirectionVector::Up)
+        else
+        {
+            m_movement -= HexMap::GetInstance()
+                              ->GetTile(x, y)
+                              ->GetTerrain()
+                              ->GetMovement();
+        }
+
+        if (vector == DirectionVector::Up)
         {
             if (m_positionY % 2 == 0)
             {
