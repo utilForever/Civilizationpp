@@ -32,7 +32,7 @@ void BaseUnit::Move(int x, int y) noexcept
             {
                 m_positionX += 1;
             }
-            m_positionY += 1;
+            m_positionY -= 1;
         }
         else if (vector == DirectionVector::Down)
         {
@@ -40,7 +40,7 @@ void BaseUnit::Move(int x, int y) noexcept
             {
                 m_positionX -= 1;
             }
-            m_positionY -= 1;
+            m_positionY += 1;
         }
         else if (vector == DirectionVector::Left)
         {
