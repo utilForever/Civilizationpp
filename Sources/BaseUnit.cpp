@@ -8,11 +8,43 @@ BaseUnit::BaseUnit(int x, int y)
     m_positionY = y;
 }
 
+DirectionVector BaseUnit::FindDirection(int destinationX, int destinationY)
+{
+    return DirectionVector::Idle;
+}
+
+void BaseUnit::MoveLeft()
+{
+    m_positionX -= 1;
+}
+void BaseUnit::MoveRight()
+{
+    m_positionX += 1;
+}
+void BaseUnit::MoveTopLeft()
+{
+    m_positionY -= 1;
+}
+void BaseUnit::MoveTopRight()
+{
+    m_positionX += 1;
+    m_positionY -= 1;
+}
+void BaseUnit::MoveBottomLeft()
+{
+    m_positionX -= 1;
+    m_positionY += 1;
+}
+void BaseUnit::MoveBottomRight()
+{
+    m_positionY += 1;
+}
+
 void BaseUnit::Move(int x, int y) noexcept
 {
     while (true)
     {
-        DirectionVector vector = GetDirection(x, y);
+        DirectionVector vector = FindDirection(x, y);
         if (vector == DirectionVector::Idle)
         {
             // Do Nothing
@@ -67,33 +99,6 @@ void BaseUnit::Move(int x, int y) noexcept
             MoveBottomRight();
         }
     }
-}
-
-void BaseUnit::MoveLeft()
-{
-    m_positionX -= 1;
-}
-void BaseUnit::MoveRight()
-{
-    m_positionX += 1;
-}
-void BaseUnit::MoveTopLeft()
-{
-    m_positionY -= 1;
-}
-void BaseUnit::MoveTopRight()
-{
-    m_positionX += 1;
-    m_positionY -= 1;
-}
-void BaseUnit::MoveBottomLeft()
-{
-    m_positionX -= 1;
-    m_positionY += 1;
-}
-void BaseUnit::MoveTopRight()
-{
-    m_positionY += 1;
 }
 
 std::pair<int, int> BaseUnit::GetPosition() const

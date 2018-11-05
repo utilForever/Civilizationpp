@@ -26,7 +26,7 @@ class BaseUnit
     int m_positionY{ 0 };
     int m_movement{ 0 };
 
-    DirectionVector GetDirection(int destinationX, int destinationY);
+    DirectionVector FindDirection(int destinationX, int destinationY);
     void MoveLeft();
     void MoveRight();
     void MoveTopLeft();
