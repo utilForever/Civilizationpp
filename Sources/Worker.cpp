@@ -7,7 +7,7 @@ Worker::Worker(int x, int y) : BaseUnit(x, y)
     // Do nothing
 }
 
-void Worker::Build(BaseResource* resource)
+void Worker::Build(BasicResource* resource)
 {
     auto position = GetPosition();
     HexMap::GetInstance()
@@ -15,7 +15,7 @@ void Worker::Build(BaseResource* resource)
         ->ChangeResource(resource);
 }
 
-void Worker::Build(HexTile* tile, BaseResource* resource)
+void Worker::Build(HexTile* tile, BasicResource* resource)
 {
     tile->ChangeResource(resource);
 }

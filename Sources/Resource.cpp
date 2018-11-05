@@ -1,25 +1,25 @@
-#include <BaseResource.h>
+#include <BasicResource.h>
 
 using namespace Civilizationpp;
 
-BaseResource::BaseResource()
+BasicResource::BasicResource()
 {
     m_food = 0;
     m_gold = 0;
     m_production = 0;
 }
 
-int BaseResource::GetFood() const
+int BasicResource::GetFood() const
 {
     return m_food;
 }
 
-int BaseResource::GetProduction() const
+int BasicResource::GetProduction() const
 {
     return m_production;
 }
 
-int BaseResource::GetGold() const
+int BasicResource::GetGold() const
 {
     return m_gold;
 }

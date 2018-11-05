@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 
-#include <BaseResource.h>
 #include <Worker.h>
 
 using namespace Civilizationpp;
@@ -20,7 +19,7 @@ TEST(Worker, CanMoveAnywhere)
 TEST(Worker, CanChangeTile)
 {
     Worker worker{ 0, 0 };
-    BaseResource res;
+    BasicResource res;
 
     HexMap::GetInstance()->Generate(GameSettings(30, 30));
 
