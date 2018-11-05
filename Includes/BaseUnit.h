@@ -33,7 +33,7 @@ class BaseUnit
     void MoveTopRight();
     void MoveBottomLeft();
     void MoveBottomRight();
-	
+    void MoveOneStepToVector(DirectionVector vector);
  public:
     BaseUnit(int x, int y);
     virtual ~BaseUnit() = default;

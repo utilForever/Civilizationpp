@@ -52,52 +52,56 @@ void BaseUnit::Move(int x, int y) noexcept
         }
         else
         {
-            m_movement -= HexMap::GetInstance()
-                              ->GetTile(x, y)
-                              ->GetTerrain()
-                              ->GetMovement();
+            MoveOneStepToVector(vector);
         }
+    }
+}
 
-        if (vector == DirectionVector::Up)
-        {
-            if (m_positionY % 2 == 0)
-            {
-                MoveTopLeft();
-            }
-            MoveTopRight();
-        }
-        else if (vector == DirectionVector::Down)
-        {
-            if (m_positionY % 2 == 0)
-            {
-                MoveBottomLeft();
-            }
-            MoveBottomRight();
-        }
-        else if (vector == DirectionVector::Left)
-        {
-            MoveLeft();
-        }
-        else if (vector == DirectionVector::Right)
-        {
-            MoveRight();
-        }
-        else if (vector == DirectionVector::TopLeft)
+void BaseUnit::MoveOneStepToVector(DirectionVector vector)
+{
+    m_movement -= HexMap::GetInstance()
+                      ->GetTile(m_positionX, m_positionY)
+                      ->GetTerrain()
+                      ->GetMovement();
+    if (vector == DirectionVector::Up)
+    {
+        if (m_positionY % 2 == 0)
         {
             MoveTopLeft();
         }
-        else if (vector == DirectionVector::TopRight)
-        {
-            MoveTopRight();
-        }
-        else if (vector == DirectionVector::BottomLeft)
+        MoveTopRight();
+    }
+    else if (vector == DirectionVector::Down)
+    {
+        if (m_positionY % 2 == 0)
         {
             MoveBottomLeft();
         }
-        else if (vector == DirectionVector::BottomRight)
-        {
-            MoveBottomRight();
-        }
+        MoveBottomRight();
+    }
+    else if (vector == DirectionVector::Left)
+    {
+        MoveLeft();
+    }
+    else if (vector == DirectionVector::Right)
+    {
+        MoveRight();
+    }
+    else if (vector == DirectionVector::TopLeft)
+    {
+        MoveTopLeft();
+    }
+    else if (vector == DirectionVector::TopRight)
+    {
+        MoveTopRight();
+    }
+    else if (vector == DirectionVector::BottomLeft)
+    {
+        MoveBottomLeft();
+    }
+    else if (vector == DirectionVector::BottomRight)
+    {
+        MoveBottomRight();
     }
 }
 
