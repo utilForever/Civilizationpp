@@ -27,7 +27,13 @@ class BaseUnit
     int m_movement{ 0 };
 
     DirectionVector GetDirection(int destinationX, int destinationY);
-
+    void MoveLeft();
+    void MoveRight();
+    void MoveTopLeft();
+    void MoveTopRight();
+    void MoveBottomLeft();
+    void MoveBottomRight();
+	
  public:
     BaseUnit(int x, int y);
     virtual ~BaseUnit() = default;
