@@ -10,39 +10,56 @@ BaseUnit::BaseUnit(int x, int y)
 
 void BaseUnit::Move(int x, int y) noexcept
 {
-    const int deffresceX = m_positionX - x;
-    const int deffresceY = m_positionY - y;
-
-    if (m_movement < abs(deffresceX))
+    while (true)
     {
-        if (deffresceX > 0)
+        DirectionVector vector = GetDirection(x, y);
+        if (vector == DirectionVector::Idle)
         {
-            m_positionX += m_movement;
+            // Do Nothing
+            break;
         }
-        else
+        else if (vector == DirectionVector::Up)
         {
-            m_positionX -= m_movement;
+            if (m_positionY % 2 == 0)
+            {
+                m_positionX += 1;
+            }
+            m_positionY += 1;
         }
-    }
-    else
-    {
-        m_positionX = x;
-    }
-
-    if (m_movement < abs(deffresceY))
-    {
-        if (deffresceY > 0)
+        else if (vector == DirectionVector::Down)
         {
-            m_positionY += m_movement;
+            if (m_positionY % 2 == 0)
+            {
+                m_positionX -= 1;
+            }
+            m_positionY -= 1;
         }
-        else
+        else if (vector == DirectionVector::Left)
         {
-            m_positionY -= m_movement;
+            m_positionX -= 1;
         }
-    }
-    else
-    {
-        m_positionY = y;
+        else if (vector == DirectionVector::Right)
+        {
+            m_positionX += 1;
+        }
+        else if (vector == DirectionVector::TopLeft)
+        {
+            m_positionX += 1;
+            m_positionY -= 1;
+        }
+        else if (vector == DirectionVector::TopRight)
+        {
+            m_positionY -= 1;
+        }
+        else if (vector == DirectionVector::BottomLeft)
+        {
+            m_positionX -= 1;
+            m_positionY += 1;
+        }
+        else if (vector == DirectionVector::BottomRight)
+        {
+            m_positionY += 1;
+        }
     }
 }
 
