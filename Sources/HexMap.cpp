@@ -81,12 +81,12 @@ std::vector<const HexTile*> HexMap::GetAdjacencies(int r, int q) const
 int HexMap::GetDistance(int r1, int q1, int r2, int q2) const
 {
     // Convert axial coordinates to cube coordinates
-    int y1 = -r1 - q1;
-    int y2 = -r2 - q2;
+    const int y1 = -r1 - q1;
+    const int y2 = -r2 - q2;
 
-    int dx = std::abs(q1 - q2);
-    int dy = std::abs(y1 - y2);
-    int dz = std::abs(r1 - r2);
+    const int dx = std::abs(q1 - q2);
+    const int dy = std::abs(y1 - y2);
+    const int dz = std::abs(r1 - r2);
 
     return std::max({ dx, dy, dz });
 }
