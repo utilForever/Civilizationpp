@@ -78,7 +78,7 @@ std::vector<const HexTile*> HexMap::GetAdjacencies(int r, int q) const
     return ret;
 }
 
-int HexMap::GetDistance(int r1, int q1, int r2, int q2) const
+int HexMap::GetDistance(int r1, int q1, int r2, int q2)
 {
     // Convert axial coordinates to cube coordinates
     const int y1 = -r1 - q1;

@@ -21,7 +21,7 @@ class HexMap
     const HexTile* GetTile(int r, int q) const;
     std::vector<const HexTile*> GetAdjacencies(int r, int q) const;
 
-    int GetDistance(int r1, int q1, int r2, int q2) const;
+    static int GetDistance(int r1, int q1, int r2, int q2);
 
  private:
     HexMap();
