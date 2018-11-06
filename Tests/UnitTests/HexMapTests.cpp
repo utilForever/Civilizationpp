@@ -123,3 +123,32 @@ TEST(HexMap, ShouldReturnVectorOfNonNullptrAdjacentTilesOnRequest)
               adjacenciesToEdge.end());
     ASSERT_EQ(adjacenciesToEdge.size(), (size_t)4);
 }
+
+TEST(HexMap, ShouldReturnDistanceOfTwoHexTile)
+{
+    // Two same tile should return 0 distance
+    ASSERT_EQ(0, HexMap::GetInstance()->GetDistance(0, 0, 0, 0));
+
+    // Adjacent tiles should return 1 distance
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0,  0, -1));
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0, -1,  0));
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0, -1,  1));
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0,  0,  1));
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0,  1,  0));
+    ASSERT_EQ(1, HexMap::GetInstance()->GetDistance(0, 0,  1, -1));
+
+    // Tiles in 2 distance
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  0, -2));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0, -1, -1));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0, -2,  0));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0, -2,  1));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0, -2,  2));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0, -1,  2));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  2, -1));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  0,  2));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  1,  1));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  2,  0));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  2, -1));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  2, -2));
+    ASSERT_EQ(2, HexMap::GetInstance()->GetDistance(0, 0,  1, -2));
+}
