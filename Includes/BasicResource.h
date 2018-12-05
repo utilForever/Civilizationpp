@@ -1,12 +1,12 @@
-#ifndef CIVILIZATIONPP_RESOURCE_H
-#define CIVILIZATIONPP_RESOURCE_H
+#ifndef CIVILIZATIONPP_BASIC_RESOURCE_H
+#define CIVILIZATIONPP_BASIC_RESOURCE_H
 
 namespace Civilizationpp
 {
-class Resource
+class BasicResource
 {
  public:
-    Resource();
+    BasicResource();
 
     int GetFood() const;
     int GetProduction() const;
@@ -19,4 +19,4 @@ class Resource
 };
 }  // namespace Civilizationpp
 
-#endif  // CIVILIZATIONPP_RESOURCE_H
+#endif  // CIVILIZATIONPP_BASIC_RESOURCE_H

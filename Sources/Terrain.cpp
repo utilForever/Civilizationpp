@@ -28,12 +28,12 @@ int Terrain::GetCombat() const
     return m_combat;
 }
 
-Resource* Terrain::GetResource() const
+BasicResource* Terrain::GetResource() const
 {
-    return m_pResource;
+    return m_pBasicResource;
 }
 
-void Terrain::ChangeResource(Resource* resource)
+void Terrain::ChangeResource(BasicResource* resource)
 {
-    m_pResource = resource;
+    m_pBasicResource = resource;
 }

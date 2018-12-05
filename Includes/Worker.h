@@ -10,8 +10,8 @@ class Worker : public BaseUnit
  public:
     Worker(int x, int y);
 
-    void Build(Resource* tile);
-    void Build(HexTile* tile, Resource* resource);
+    void Build(BasicResource* tile);
+    void Build(HexTile* tile, BasicResource* resource);
 };
 }  // namespace Civilizationpp
 
