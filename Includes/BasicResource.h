@@ -1,5 +1,5 @@
-#ifndef CIVILIZATIONPP_BASICRESOURCE_H
-#define CIVILIZATIONPP_BASICRESOURCE_H
+#ifndef CIVILIZATIONPP_BASIC_RESOURCE_H
+#define CIVILIZATIONPP_BASIC_RESOURCE_H
 
 namespace Civilizationpp
 {
@@ -19,4 +19,4 @@ class BasicResource
 };
 }  // namespace Civilizationpp
 
-#endif  // CIVILIZATIONPP_BASICRESOURCE_H
+#endif  // CIVILIZATIONPP_BASIC_RESOURCE_H
